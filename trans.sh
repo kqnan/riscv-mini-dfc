@@ -1,0 +1,1 @@
+cp ./generated-src/Tile.v /run/user/1000/gvfs/smb-share\:server\=192.168.37.1\,share\=tilefile/DfAxi.v
