@@ -4,8 +4,6 @@ import chisel3._
 
 class vga_ctrl extends Module{
   val io = IO(new Bundle{
-    val vga_clk=Input(Clock())
-    val sys_rst_n = Input(Bool())
     val pix_data= Input(UInt(12.W))
     val pix_x= Output(UInt(10.W))
     val pix_y= Output(UInt(10.W))
@@ -20,26 +18,26 @@ class vga_ctrl extends Module{
   val cnt_h = RegInit(0.U(10.W))
   val cnt_v = RegInit(0.U(10.W))
 
-  withClockAndReset(io.vga_clk,io.sys_rst_n){
-    when(io.sys_rst_n === false.B){
-      cnt_h:=0.U
-    }.elsewhen(cnt_h === (H_TOTAL - 1.U)){
+  //withClockAndReset(io.vga_clk,io.sys_rst_n){
+
+
+    when(cnt_h === (H_TOTAL - 1.U)){
       cnt_h:=0.U
     }.otherwise{
       cnt_h:=cnt_h+1.U
     }
-  }
-  withClockAndReset(io.vga_clk,io.sys_rst_n){
-    when(io.sys_rst_n===false.B){
-      cnt_v:=0.U
-    }.elsewhen((cnt_v===(V_TOTAL-1.U))&&(cnt_h===(H_TOTAL-1.U))){
+    //}
+    //  withClockAndReset(io.vga_clk,io.sys_rst_n){
+    when((cnt_v===(V_TOTAL-1.U))&&(cnt_h===(H_TOTAL-1.U))){
       cnt_v:=0.U
     }.elsewhen(cnt_h ===(H_TOTAL-1.U)){
       cnt_v:=cnt_v+1.U
     }.otherwise{
       cnt_v:=cnt_v
     }
-  }
+
+
+ // }
 //  val rgb_valid= Mux( (cnt_h >=H_SYNC+H_BACK+H_LEFT)
 //      &&(cnt_h<H_SYNC+H_BACK+H_LEFT+H_VALID)
 //    &&(cnt_v>=V_SYNC+V_BACK+V_TOP)

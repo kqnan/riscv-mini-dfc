@@ -6,6 +6,7 @@ import chisel3.{Output, _}
 import chisel3.util._
 import junctions._
 import freechips.rocketchip.config.Parameters
+import vga.vga_pic
 
 //三个nasti端口,其中两个分别连接icache和dcache
 class MemArbiterIO(implicit val p: Parameters) extends Bundle {
@@ -143,7 +144,8 @@ class Tile(tileParams: Parameters) extends Module with TileBase {
   val uart = Module(new Uart(100000000,512000))
   //rtc
   val rtc = Module(new RTC(10000000,p))
-
+  //vga
+  val vga= Module(new vga_pic)
   // 操作系统仿真、dfc代码段仿真
   // val receiver = Module(new Receiver(50000000, 57600))
   // val sender = Module(new Sender(10000000, 57600))
@@ -175,7 +177,7 @@ class Tile(tileParams: Parameters) extends Module with TileBase {
   // uart.io.txd <> receiver.io.rxd  // 操作系统仿真、dfc代码段仿真
 
   regmapper.io.rtc <> rtc.io
-
+  //regmapper.io.vga <> vga.io.cpu
   //mem connect
   arb.io.icache <> icache.io.nasti
   arb.io.dcache <> dcache.io.nasti
