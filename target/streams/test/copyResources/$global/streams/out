@@ -1,52 +1,52 @@
-[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-bge.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-bge.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32mi-p-illegal.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32mi-p-illegal.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-jal.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-jal.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-lw.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-lw.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-and.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-and.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-jalr.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-jalr.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32mi-p-ma_addr.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32mi-p-ma_addr.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-ori.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-ori.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/towers.riscv-large.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/towers.riscv-large.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-slti.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-slti.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-add.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-add.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-slt.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-slt.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-lhu.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-lhu.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-srai.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-srai.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-sh.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-sh.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-blt.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-blt.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-xor.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-xor.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32mi-p-ma_fetch.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32mi-p-ma_fetch.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/vvadd.riscv.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/vvadd.riscv.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-bne.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-bne.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-lb.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-lb.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-bgeu.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-bgeu.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/median.riscv-large.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/median.riscv-large.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-simple.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-simple.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/multiply.riscv.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/multiply.riscv.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-lh.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-lh.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-sw.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-sw.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-andi.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-andi.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-beq.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-beq.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-lui.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-lui.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-or.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-or.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/towers.riscv.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/towers.riscv.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-sb.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-sb.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32mi-p-scall.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32mi-p-scall.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-sra.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-sra.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/qsort.riscv-large.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/qsort.riscv-large.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/vvadd.riscv-large.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/vvadd.riscv-large.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/median.riscv.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/median.riscv.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-slli.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-slli.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/qsort.riscv.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/qsort.riscv.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32mi-p-sbreak.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32mi-p-sbreak.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-xori.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-xori.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-j.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-j.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-lbu.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-lbu.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-auipc.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-auipc.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-bltu.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-bltu.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-sll.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-sll.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32mi-p-csr.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32mi-p-csr.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/multiply.riscv-large.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/multiply.riscv-large.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-sub.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-sub.hex)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wen/riscv-wzw/src/test/resources/rv32ui-p-addi.hex,/home/wen/riscv-wzw/target/scala-2.12/test-classes/rv32ui-p-addi.hex)[0m
+[debug] Copy resource mappings: 
+[debug] 	(H:\riscv-df\src\test\resources\median.riscv-large.hex,H:\riscv-df\target\scala-2.12\test-classes\median.riscv-large.hex)
+[debug] 	(H:\riscv-df\src\test\resources\median.riscv.hex,H:\riscv-df\target\scala-2.12\test-classes\median.riscv.hex)
+[debug] 	(H:\riscv-df\src\test\resources\multiply.riscv-large.hex,H:\riscv-df\target\scala-2.12\test-classes\multiply.riscv-large.hex)
+[debug] 	(H:\riscv-df\src\test\resources\multiply.riscv.hex,H:\riscv-df\target\scala-2.12\test-classes\multiply.riscv.hex)
+[debug] 	(H:\riscv-df\src\test\resources\qsort.riscv-large.hex,H:\riscv-df\target\scala-2.12\test-classes\qsort.riscv-large.hex)
+[debug] 	(H:\riscv-df\src\test\resources\qsort.riscv.hex,H:\riscv-df\target\scala-2.12\test-classes\qsort.riscv.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32mi-p-csr.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32mi-p-csr.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32mi-p-illegal.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32mi-p-illegal.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32mi-p-ma_addr.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32mi-p-ma_addr.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32mi-p-ma_fetch.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32mi-p-ma_fetch.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32mi-p-sbreak.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32mi-p-sbreak.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32mi-p-scall.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32mi-p-scall.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-add.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-add.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-addi.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-addi.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-and.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-and.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-andi.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-andi.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-auipc.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-auipc.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-beq.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-beq.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-bge.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-bge.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-bgeu.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-bgeu.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-blt.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-blt.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-bltu.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-bltu.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-bne.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-bne.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-j.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-j.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-jal.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-jal.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-jalr.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-jalr.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-lb.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-lb.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-lbu.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-lbu.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-lh.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-lh.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-lhu.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-lhu.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-lui.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-lui.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-lw.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-lw.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-or.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-or.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-ori.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-ori.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-sb.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-sb.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-sh.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-sh.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-simple.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-simple.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-sll.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-sll.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-slli.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-slli.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-slt.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-slt.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-slti.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-slti.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-sra.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-sra.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-srai.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-srai.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-sub.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-sub.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-sw.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-sw.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-xor.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-xor.hex)
+[debug] 	(H:\riscv-df\src\test\resources\rv32ui-p-xori.hex,H:\riscv-df\target\scala-2.12\test-classes\rv32ui-p-xori.hex)
+[debug] 	(H:\riscv-df\src\test\resources\towers.riscv-large.hex,H:\riscv-df\target\scala-2.12\test-classes\towers.riscv-large.hex)
+[debug] 	(H:\riscv-df\src\test\resources\towers.riscv.hex,H:\riscv-df\target\scala-2.12\test-classes\towers.riscv.hex)
+[debug] 	(H:\riscv-df\src\test\resources\vvadd.riscv-large.hex,H:\riscv-df\target\scala-2.12\test-classes\vvadd.riscv-large.hex)
+[debug] 	(H:\riscv-df\src\test\resources\vvadd.riscv.hex,H:\riscv-df\target\scala-2.12\test-classes\vvadd.riscv.hex)

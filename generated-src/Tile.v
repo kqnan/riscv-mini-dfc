@@ -7364,58 +7364,58 @@ module MemArbiter(
 `ifdef RANDOMIZE_REG_INIT
   reg [31:0] _RAND_0;
 `endif // RANDOMIZE_REG_INIT
-  reg [2:0] state; // @[Tile.scala 22:22]
-  wire  _T = state == 3'h0; // @[Tile.scala 27:52]
-  wire  _T_4 = state == 3'h3; // @[Tile.scala 33:50]
-  wire  _T_8 = state == 3'h4; // @[Tile.scala 39:50]
-  wire  _T_18 = ~io_nasti_aw_valid; // @[Tile.scala 51:5]
-  wire  _T_19 = (io_icache_ar_valid | io_dcache_ar_valid) & _T_18; // @[Tile.scala 50:67]
-  wire  _T_28 = state == 3'h1; // @[Tile.scala 58:50]
-  wire  _T_30 = state == 3'h2; // @[Tile.scala 59:50]
-  wire  _T_35 = io_dcache_r_ready & _T_30; // @[Tile.scala 61:23]
+  reg [2:0] state; // @[Tile.scala 23:22]
+  wire  _T = state == 3'h0; // @[Tile.scala 28:52]
+  wire  _T_4 = state == 3'h3; // @[Tile.scala 34:50]
+  wire  _T_8 = state == 3'h4; // @[Tile.scala 40:50]
+  wire  _T_18 = ~io_nasti_aw_valid; // @[Tile.scala 52:5]
+  wire  _T_19 = (io_icache_ar_valid | io_dcache_ar_valid) & _T_18; // @[Tile.scala 51:67]
+  wire  _T_28 = state == 3'h1; // @[Tile.scala 59:50]
+  wire  _T_30 = state == 3'h2; // @[Tile.scala 60:50]
+  wire  _T_35 = io_dcache_r_ready & _T_30; // @[Tile.scala 62:23]
   wire  _T_37 = 3'h0 == state; // @[Conditional.scala 37:30]
   wire  _T_38 = io_dcache_aw_ready & io_dcache_aw_valid; // @[Decoupled.scala 40:37]
   wire  _T_39 = io_dcache_ar_ready & io_dcache_ar_valid; // @[Decoupled.scala 40:37]
   wire  _T_40 = io_icache_ar_ready & io_icache_ar_valid; // @[Decoupled.scala 40:37]
-  wire [2:0] _GEN_0 = _T_40 ? 3'h1 : state; // @[Tile.scala 70:39 Tile.scala 71:15 Tile.scala 22:22]
+  wire [2:0] _GEN_0 = _T_40 ? 3'h1 : state; // @[Tile.scala 71:39 Tile.scala 72:15 Tile.scala 23:22]
   wire  _T_41 = 3'h1 == state; // @[Conditional.scala 37:30]
   wire  _T_42 = io_nasti_r_ready & io_nasti_r_valid; // @[Decoupled.scala 40:37]
-  wire [2:0] _GEN_3 = _T_42 & io_nasti_r_bits_last ? 3'h0 : state; // @[Tile.scala 75:55 Tile.scala 76:15 Tile.scala 22:22]
+  wire [2:0] _GEN_3 = _T_42 & io_nasti_r_bits_last ? 3'h0 : state; // @[Tile.scala 76:55 Tile.scala 77:15 Tile.scala 23:22]
   wire  _T_44 = 3'h2 == state; // @[Conditional.scala 37:30]
   wire  _T_47 = 3'h3 == state; // @[Conditional.scala 37:30]
   wire  _T_48 = io_dcache_w_ready & io_dcache_w_valid; // @[Decoupled.scala 40:37]
-  wire [2:0] _GEN_5 = _T_48 & io_dcache_w_bits_last ? 3'h4 : state; // @[Tile.scala 85:57 Tile.scala 86:15 Tile.scala 22:22]
+  wire [2:0] _GEN_5 = _T_48 & io_dcache_w_bits_last ? 3'h4 : state; // @[Tile.scala 86:57 Tile.scala 87:15 Tile.scala 23:22]
   wire  _T_50 = 3'h4 == state; // @[Conditional.scala 37:30]
   wire  _T_51 = io_nasti_b_ready & io_nasti_b_valid; // @[Decoupled.scala 40:37]
-  wire [2:0] _GEN_6 = _T_51 ? 3'h0 : state; // @[Tile.scala 90:31 Tile.scala 91:15 Tile.scala 22:22]
-  wire [2:0] _GEN_7 = _T_50 ? _GEN_6 : state; // @[Conditional.scala 39:67 Tile.scala 22:22]
+  wire [2:0] _GEN_6 = _T_51 ? 3'h0 : state; // @[Tile.scala 91:31 Tile.scala 92:15 Tile.scala 23:22]
+  wire [2:0] _GEN_7 = _T_50 ? _GEN_6 : state; // @[Conditional.scala 39:67 Tile.scala 23:22]
   wire [2:0] _GEN_8 = _T_47 ? _GEN_5 : _GEN_7; // @[Conditional.scala 39:67]
-  assign io_icache_ar_ready = io_dcache_ar_ready & ~io_dcache_ar_valid; // @[Tile.scala 53:44]
-  assign io_icache_r_valid = io_nasti_r_valid & state == 3'h1; // @[Tile.scala 58:41]
-  assign io_icache_r_bits_data = io_nasti_r_bits_data; // @[Tile.scala 56:20]
-  assign io_dcache_aw_ready = io_nasti_aw_ready & _T; // @[Tile.scala 28:43]
-  assign io_dcache_w_ready = io_nasti_w_ready & _T_4; // @[Tile.scala 34:41]
-  assign io_dcache_b_valid = io_nasti_b_valid & state == 3'h4; // @[Tile.scala 39:41]
-  assign io_dcache_ar_ready = io_nasti_ar_ready & _T_18 & _T; // @[Tile.scala 52:65]
-  assign io_dcache_r_valid = io_nasti_r_valid & state == 3'h2; // @[Tile.scala 59:41]
-  assign io_dcache_r_bits_data = io_nasti_r_bits_data; // @[Tile.scala 57:20]
-  assign io_nasti_aw_valid = io_dcache_aw_valid & state == 3'h0; // @[Tile.scala 27:43]
-  assign io_nasti_aw_bits_addr = io_dcache_aw_bits_addr; // @[Tile.scala 26:20]
-  assign io_nasti_w_valid = io_dcache_w_valid & state == 3'h3; // @[Tile.scala 33:41]
-  assign io_nasti_w_bits_data = io_dcache_w_bits_data; // @[Tile.scala 32:19]
-  assign io_nasti_w_bits_last = io_dcache_w_bits_last; // @[Tile.scala 32:19]
-  assign io_nasti_b_ready = io_dcache_b_ready & _T_8; // @[Tile.scala 40:41]
-  assign io_nasti_ar_valid = _T_19 & _T; // @[Tile.scala 51:24]
-  assign io_nasti_ar_bits_addr = io_dcache_ar_valid ? io_dcache_ar_bits_addr : io_icache_ar_bits_addr; // @[Tile.scala 47:8]
-  assign io_nasti_r_ready = io_icache_r_ready & _T_28 | _T_35; // @[Tile.scala 60:68]
+  assign io_icache_ar_ready = io_dcache_ar_ready & ~io_dcache_ar_valid; // @[Tile.scala 54:44]
+  assign io_icache_r_valid = io_nasti_r_valid & state == 3'h1; // @[Tile.scala 59:41]
+  assign io_icache_r_bits_data = io_nasti_r_bits_data; // @[Tile.scala 57:20]
+  assign io_dcache_aw_ready = io_nasti_aw_ready & _T; // @[Tile.scala 29:43]
+  assign io_dcache_w_ready = io_nasti_w_ready & _T_4; // @[Tile.scala 35:41]
+  assign io_dcache_b_valid = io_nasti_b_valid & state == 3'h4; // @[Tile.scala 40:41]
+  assign io_dcache_ar_ready = io_nasti_ar_ready & _T_18 & _T; // @[Tile.scala 53:65]
+  assign io_dcache_r_valid = io_nasti_r_valid & state == 3'h2; // @[Tile.scala 60:41]
+  assign io_dcache_r_bits_data = io_nasti_r_bits_data; // @[Tile.scala 58:20]
+  assign io_nasti_aw_valid = io_dcache_aw_valid & state == 3'h0; // @[Tile.scala 28:43]
+  assign io_nasti_aw_bits_addr = io_dcache_aw_bits_addr; // @[Tile.scala 27:20]
+  assign io_nasti_w_valid = io_dcache_w_valid & state == 3'h3; // @[Tile.scala 34:41]
+  assign io_nasti_w_bits_data = io_dcache_w_bits_data; // @[Tile.scala 33:19]
+  assign io_nasti_w_bits_last = io_dcache_w_bits_last; // @[Tile.scala 33:19]
+  assign io_nasti_b_ready = io_dcache_b_ready & _T_8; // @[Tile.scala 41:41]
+  assign io_nasti_ar_valid = _T_19 & _T; // @[Tile.scala 52:24]
+  assign io_nasti_ar_bits_addr = io_dcache_ar_valid ? io_dcache_ar_bits_addr : io_icache_ar_bits_addr; // @[Tile.scala 48:8]
+  assign io_nasti_r_ready = io_icache_r_ready & _T_28 | _T_35; // @[Tile.scala 61:68]
   always @(posedge clock) begin
-    if (reset) begin // @[Tile.scala 22:22]
-      state <= 3'h0; // @[Tile.scala 22:22]
+    if (reset) begin // @[Tile.scala 23:22]
+      state <= 3'h0; // @[Tile.scala 23:22]
     end else if (_T_37) begin // @[Conditional.scala 40:58]
-      if (_T_38) begin // @[Tile.scala 66:33]
-        state <= 3'h3; // @[Tile.scala 67:15]
-      end else if (_T_39) begin // @[Tile.scala 68:39]
-        state <= 3'h2; // @[Tile.scala 69:15]
+      if (_T_38) begin // @[Tile.scala 67:33]
+        state <= 3'h3; // @[Tile.scala 68:15]
+      end else if (_T_39) begin // @[Tile.scala 69:39]
+        state <= 3'h2; // @[Tile.scala 70:15]
       end else begin
         state <= _GEN_0;
       end
@@ -8077,26 +8077,37 @@ module RegMapper(
   output [31:0] io_rtc_req_bits_data,
   output [3:0]  io_rtc_req_bits_mask,
   input         io_rtc_resp_valid,
-  input  [31:0] io_rtc_resp_bits_data
+  input  [31:0] io_rtc_resp_bits_data,
+  output        io_vga_req_valid,
+  output [17:0] io_vga_req_bits_addr,
+  output [17:0] io_vga_req_bits_data,
+  input         io_vga_resp_valid
 );
 `ifdef RANDOMIZE_REG_INIT
   reg [31:0] _RAND_0;
 `endif // RANDOMIZE_REG_INIT
   reg [31:0] addr; // @[Reg.scala 15:16]
-  wire [31:0] _T = io_selector_req_bits_addr & 32'hfffffff0; // @[RegMapper.scala 25:51]
-  wire [31:0] _T_6 = addr & 32'hfffffff0; // @[RegMapper.scala 31:11]
-  wire  _T_7 = 32'h10000000 == _T_6; // @[RegMapper.scala 31:11]
-  wire  _T_9 = 32'h10010000 == _T_6; // @[RegMapper.scala 32:11]
-  wire [31:0] _T_10 = _T_9 ? io_rtc_resp_bits_data : 32'h0; // @[Mux.scala 98:16]
-  assign io_selector_resp_valid = _T_7 ? io_uart_resp_valid : _T_9 & io_rtc_resp_valid; // @[Mux.scala 98:16]
-  assign io_selector_resp_bits_data = _T_7 ? io_uart_resp_bits_data : _T_10; // @[Mux.scala 98:16]
-  assign io_uart_req_valid = 32'h10000000 == _T & io_selector_req_valid; // @[RegMapper.scala 25:71]
-  assign io_uart_req_bits_addr = io_selector_req_bits_addr; // @[RegMapper.scala 24:20]
-  assign io_uart_req_bits_data = io_selector_req_bits_data; // @[RegMapper.scala 24:20]
-  assign io_rtc_req_valid = 32'h10010000 == _T & io_selector_req_valid; // @[RegMapper.scala 27:69]
-  assign io_rtc_req_bits_addr = io_selector_req_bits_addr; // @[RegMapper.scala 26:19]
-  assign io_rtc_req_bits_data = io_selector_req_bits_data; // @[RegMapper.scala 26:19]
-  assign io_rtc_req_bits_mask = io_selector_req_bits_mask; // @[RegMapper.scala 26:19]
+  wire [31:0] _T = io_selector_req_bits_addr & 32'hfffffff0; // @[RegMapper.scala 28:51]
+  wire [31:0] _T_6 = io_selector_req_bits_addr & 32'hfffc0000; // @[RegMapper.scala 32:50]
+  wire [31:0] _T_9 = addr & 32'hfffffff0; // @[RegMapper.scala 38:11]
+  wire  _T_10 = 32'h10000000 == _T_9; // @[RegMapper.scala 38:11]
+  wire  _T_12 = 32'h10010000 == _T_9; // @[RegMapper.scala 39:11]
+  wire [31:0] _T_13 = addr & 32'hfffc0000; // @[RegMapper.scala 40:11]
+  wire  _T_14 = 32'h18000000 == _T_13; // @[RegMapper.scala 40:11]
+  wire [31:0] _T_16 = _T_12 ? io_rtc_resp_bits_data : 32'h0; // @[Mux.scala 98:16]
+  wire  _T_24 = _T_12 ? io_rtc_resp_valid : _T_14 & io_vga_resp_valid; // @[Mux.scala 98:16]
+  assign io_selector_resp_valid = _T_10 ? io_uart_resp_valid : _T_24; // @[Mux.scala 98:16]
+  assign io_selector_resp_bits_data = _T_10 ? io_uart_resp_bits_data : _T_16; // @[Mux.scala 98:16]
+  assign io_uart_req_valid = 32'h10000000 == _T & io_selector_req_valid; // @[RegMapper.scala 28:71]
+  assign io_uart_req_bits_addr = io_selector_req_bits_addr; // @[RegMapper.scala 27:20]
+  assign io_uart_req_bits_data = io_selector_req_bits_data; // @[RegMapper.scala 27:20]
+  assign io_rtc_req_valid = 32'h10010000 == _T & io_selector_req_valid; // @[RegMapper.scala 30:69]
+  assign io_rtc_req_bits_addr = io_selector_req_bits_addr; // @[RegMapper.scala 29:19]
+  assign io_rtc_req_bits_data = io_selector_req_bits_data; // @[RegMapper.scala 29:19]
+  assign io_rtc_req_bits_mask = io_selector_req_bits_mask; // @[RegMapper.scala 29:19]
+  assign io_vga_req_valid = 32'h18000000 == _T_6 & io_selector_req_valid; // @[RegMapper.scala 32:68]
+  assign io_vga_req_bits_addr = io_selector_req_bits_addr[17:0]; // @[RegMapper.scala 31:19]
+  assign io_vga_req_bits_data = io_selector_req_bits_data[17:0]; // @[RegMapper.scala 31:19]
   always @(posedge clock) begin
     if (io_selector_req_valid) begin // @[Reg.scala 16:19]
       addr <= io_selector_req_bits_addr; // @[Reg.scala 16:23]
@@ -8182,22 +8193,22 @@ module DRAM(
   input         io_AXI_s_axi_rvalid,
   output        io_AXI_s_axi_rready
 );
-  assign io_nasti_aw_ready = io_AXI_s_axi_awready; // @[DRAM.scala 54:21]
-  assign io_nasti_w_ready = io_AXI_s_axi_wready; // @[DRAM.scala 59:20]
-  assign io_nasti_b_valid = io_AXI_s_axi_bvalid; // @[DRAM.scala 62:20]
-  assign io_nasti_ar_ready = io_AXI_s_axi_arready; // @[DRAM.scala 70:21]
-  assign io_nasti_r_valid = io_AXI_s_axi_rvalid; // @[DRAM.scala 75:20]
-  assign io_nasti_r_bits_data = io_AXI_s_axi_rdata; // @[DRAM.scala 72:24]
-  assign io_nasti_r_bits_last = io_AXI_s_axi_rlast; // @[DRAM.scala 74:24]
-  assign io_AXI_s_axi_awaddr = io_nasti_aw_bits_addr; // @[DRAM.scala 49:23]
-  assign io_AXI_s_axi_awvalid = io_nasti_aw_valid; // @[DRAM.scala 53:24]
-  assign io_AXI_s_axi_wdata = io_nasti_w_bits_data; // @[DRAM.scala 55:22]
-  assign io_AXI_s_axi_wlast = io_nasti_w_bits_last; // @[DRAM.scala 57:22]
-  assign io_AXI_s_axi_wvalid = io_nasti_w_valid; // @[DRAM.scala 58:23]
-  assign io_AXI_s_axi_bready = io_nasti_b_ready; // @[DRAM.scala 63:23]
-  assign io_AXI_s_axi_araddr = io_nasti_ar_bits_addr; // @[DRAM.scala 65:23]
-  assign io_AXI_s_axi_arvalid = io_nasti_ar_valid; // @[DRAM.scala 69:24]
-  assign io_AXI_s_axi_rready = io_nasti_r_ready; // @[DRAM.scala 76:23]
+  assign io_nasti_aw_ready = io_AXI_s_axi_awready; // @[DRAM.scala 53:21]
+  assign io_nasti_w_ready = io_AXI_s_axi_wready; // @[DRAM.scala 58:20]
+  assign io_nasti_b_valid = io_AXI_s_axi_bvalid; // @[DRAM.scala 61:20]
+  assign io_nasti_ar_ready = io_AXI_s_axi_arready; // @[DRAM.scala 69:21]
+  assign io_nasti_r_valid = io_AXI_s_axi_rvalid; // @[DRAM.scala 74:20]
+  assign io_nasti_r_bits_data = io_AXI_s_axi_rdata; // @[DRAM.scala 71:24]
+  assign io_nasti_r_bits_last = io_AXI_s_axi_rlast; // @[DRAM.scala 73:24]
+  assign io_AXI_s_axi_awaddr = io_nasti_aw_bits_addr; // @[DRAM.scala 48:23]
+  assign io_AXI_s_axi_awvalid = io_nasti_aw_valid; // @[DRAM.scala 52:24]
+  assign io_AXI_s_axi_wdata = io_nasti_w_bits_data; // @[DRAM.scala 54:22]
+  assign io_AXI_s_axi_wlast = io_nasti_w_bits_last; // @[DRAM.scala 56:22]
+  assign io_AXI_s_axi_wvalid = io_nasti_w_valid; // @[DRAM.scala 57:23]
+  assign io_AXI_s_axi_bready = io_nasti_b_ready; // @[DRAM.scala 62:23]
+  assign io_AXI_s_axi_araddr = io_nasti_ar_bits_addr; // @[DRAM.scala 64:23]
+  assign io_AXI_s_axi_arvalid = io_nasti_ar_valid; // @[DRAM.scala 68:24]
+  assign io_AXI_s_axi_rready = io_nasti_r_ready; // @[DRAM.scala 75:23]
 endmodule
 module UartController(
   input         clock,
@@ -9022,6 +9033,366 @@ end // initial
 `endif
 `endif // SYNTHESIS
 endmodule
+module SinglePortRAM(
+  input         clock,
+  input  [17:0] io_addr,
+  input  [11:0] io_dataIn,
+  input         io_we,
+  output [11:0] io_dataOut
+);
+`ifdef RANDOMIZE_GARBAGE_ASSIGN
+  reg [31:0] _RAND_1;
+`endif // RANDOMIZE_GARBAGE_ASSIGN
+`ifdef RANDOMIZE_MEM_INIT
+  reg [31:0] _RAND_0;
+`endif // RANDOMIZE_MEM_INIT
+`ifdef RANDOMIZE_REG_INIT
+  reg [31:0] _RAND_2;
+  reg [31:0] _RAND_3;
+`endif // RANDOMIZE_REG_INIT
+  reg [11:0] syncRAM [0:89999]; // @[SinglePortRam.scala 13:28]
+  wire [11:0] syncRAM_MPORT_1_data; // @[SinglePortRam.scala 13:28]
+  wire [16:0] syncRAM_MPORT_1_addr; // @[SinglePortRam.scala 13:28]
+  wire [11:0] syncRAM_MPORT_data; // @[SinglePortRam.scala 13:28]
+  wire [16:0] syncRAM_MPORT_addr; // @[SinglePortRam.scala 13:28]
+  wire  syncRAM_MPORT_mask; // @[SinglePortRam.scala 13:28]
+  wire  syncRAM_MPORT_en; // @[SinglePortRam.scala 13:28]
+  reg  syncRAM_MPORT_1_en_pipe_0;
+  reg [16:0] syncRAM_MPORT_1_addr_pipe_0;
+  assign syncRAM_MPORT_1_addr = syncRAM_MPORT_1_addr_pipe_0;
+  `ifndef RANDOMIZE_GARBAGE_ASSIGN
+  assign syncRAM_MPORT_1_data = syncRAM[syncRAM_MPORT_1_addr]; // @[SinglePortRam.scala 13:28]
+  `else
+  assign syncRAM_MPORT_1_data = syncRAM_MPORT_1_addr >= 17'h15f90 ? _RAND_1[11:0] : syncRAM[syncRAM_MPORT_1_addr]; // @[SinglePortRam.scala 13:28]
+  `endif // RANDOMIZE_GARBAGE_ASSIGN
+  assign syncRAM_MPORT_data = io_dataIn;
+  assign syncRAM_MPORT_addr = io_addr[16:0];
+  assign syncRAM_MPORT_mask = 1'h1;
+  assign syncRAM_MPORT_en = io_we;
+  assign io_dataOut = syncRAM_MPORT_1_data; // @[SinglePortRam.scala 15:17 SinglePortRam.scala 19:18]
+  always @(posedge clock) begin
+    if(syncRAM_MPORT_en & syncRAM_MPORT_mask) begin
+      syncRAM[syncRAM_MPORT_addr] <= syncRAM_MPORT_data; // @[SinglePortRam.scala 13:28]
+    end
+    if (io_we) begin
+      syncRAM_MPORT_1_en_pipe_0 <= 1'h0;
+    end else begin
+      syncRAM_MPORT_1_en_pipe_0 <= 1'h1;
+    end
+    if (io_we ? 1'h0 : 1'h1) begin
+      syncRAM_MPORT_1_addr_pipe_0 <= io_addr[16:0];
+    end
+  end
+// Register and memory initialization
+`ifdef RANDOMIZE_GARBAGE_ASSIGN
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_INVALID_ASSIGN
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_REG_INIT
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_MEM_INIT
+`define RANDOMIZE
+`endif
+`ifndef RANDOM
+`define RANDOM $random
+`endif
+`ifdef RANDOMIZE_MEM_INIT
+  integer initvar;
+`endif
+`ifndef SYNTHESIS
+`ifdef FIRRTL_BEFORE_INITIAL
+`FIRRTL_BEFORE_INITIAL
+`endif
+initial begin
+  `ifdef RANDOMIZE
+    `ifdef INIT_RANDOM
+      `INIT_RANDOM
+    `endif
+    `ifndef VERILATOR
+      `ifdef RANDOMIZE_DELAY
+        #`RANDOMIZE_DELAY begin end
+      `else
+        #0.002 begin end
+      `endif
+    `endif
+`ifdef RANDOMIZE_GARBAGE_ASSIGN
+  _RAND_1 = {1{`RANDOM}};
+`endif // RANDOMIZE_GARBAGE_ASSIGN
+`ifdef RANDOMIZE_MEM_INIT
+  _RAND_0 = {1{`RANDOM}};
+  for (initvar = 0; initvar < 90000; initvar = initvar+1)
+    syncRAM[initvar] = _RAND_0[11:0];
+`endif // RANDOMIZE_MEM_INIT
+`ifdef RANDOMIZE_REG_INIT
+  _RAND_2 = {1{`RANDOM}};
+  syncRAM_MPORT_1_en_pipe_0 = _RAND_2[0:0];
+  _RAND_3 = {1{`RANDOM}};
+  syncRAM_MPORT_1_addr_pipe_0 = _RAND_3[16:0];
+`endif // RANDOMIZE_REG_INIT
+  `endif // RANDOMIZE
+end // initial
+`ifdef FIRRTL_AFTER_INITIAL
+`FIRRTL_AFTER_INITIAL
+`endif
+`endif // SYNTHESIS
+endmodule
+module vga_ctrl(
+  input         clock,
+  input         reset,
+  output        io_hsync,
+  output        io_vsync,
+  input         io_cpu_valid,
+  input  [17:0] io_cpu_bits_addr,
+  input  [17:0] io_cpu_bits_data,
+  output [11:0] io_vga_rgb
+);
+`ifdef RANDOMIZE_REG_INIT
+  reg [31:0] _RAND_0;
+  reg [31:0] _RAND_1;
+`endif // RANDOMIZE_REG_INIT
+  wire  mem_clock; // @[vga_ctrl.scala 16:19]
+  wire [17:0] mem_io_addr; // @[vga_ctrl.scala 16:19]
+  wire [11:0] mem_io_dataIn; // @[vga_ctrl.scala 16:19]
+  wire  mem_io_we; // @[vga_ctrl.scala 16:19]
+  wire [11:0] mem_io_dataOut; // @[vga_ctrl.scala 16:19]
+  reg [9:0] cnt_h; // @[vga_ctrl.scala 32:22]
+  reg [9:0] cnt_v; // @[vga_ctrl.scala 33:22]
+  wire [8:0] x = io_cpu_bits_addr[17:9]; // @[vga_ctrl.scala 36:27]
+  wire [8:0] y = io_cpu_bits_addr[8:0]; // @[vga_ctrl.scala 37:27]
+  wire [17:0] _T_3 = y * 9'h12c; // @[vga_ctrl.scala 41:22]
+  wire [17:0] _GEN_8 = {{9'd0}, x}; // @[vga_ctrl.scala 41:30]
+  wire [17:0] _T_5 = _T_3 + _GEN_8; // @[vga_ctrl.scala 41:30]
+  wire  _T_9 = cnt_v < 10'h12c; // @[vga_ctrl.scala 43:54]
+  wire [18:0] _T_11 = cnt_v * 9'h12c; // @[vga_ctrl.scala 44:26]
+  wire [18:0] _GEN_9 = {{9'd0}, cnt_h}; // @[vga_ctrl.scala 44:34]
+  wire [18:0] _T_13 = _T_11 + _GEN_9; // @[vga_ctrl.scala 44:34]
+  wire [18:0] _T_15 = _T_13 + 19'h1; // @[vga_ctrl.scala 44:42]
+  wire [9:0] _T_20 = cnt_v + 10'h1; // @[vga_ctrl.scala 46:27]
+  wire [18:0] _T_21 = _T_20 * 9'h12c; // @[vga_ctrl.scala 46:34]
+  wire [18:0] _GEN_1 = cnt_h == 10'h31f & _T_9 ? _T_21 : 19'h0; // @[vga_ctrl.scala 45:48 vga_ctrl.scala 46:17]
+  wire [18:0] _GEN_2 = cnt_h <= 10'h12a & cnt_v < 10'h12c ? _T_15 : _GEN_1; // @[vga_ctrl.scala 43:63 vga_ctrl.scala 44:17]
+  wire [18:0] _GEN_3 = io_cpu_valid ? {{1'd0}, _T_5} : _GEN_2; // @[vga_ctrl.scala 40:22 vga_ctrl.scala 41:17]
+  wire [9:0] _T_30 = 10'h320 - 10'h1; // @[vga_ctrl.scala 63:27]
+  wire  _T_31 = cnt_h == _T_30; // @[vga_ctrl.scala 63:14]
+  wire [9:0] _T_33 = cnt_h + 10'h1; // @[vga_ctrl.scala 66:20]
+  wire [9:0] _T_35 = 10'h20d - 10'h1; // @[vga_ctrl.scala 71:28]
+  SinglePortRAM mem ( // @[vga_ctrl.scala 16:19]
+    .clock(mem_clock),
+    .io_addr(mem_io_addr),
+    .io_dataIn(mem_io_dataIn),
+    .io_we(mem_io_we),
+    .io_dataOut(mem_io_dataOut)
+  );
+  assign io_hsync = cnt_h >= 10'h290 & cnt_h < 10'h2f0; // @[vga_ctrl.scala 79:56]
+  assign io_vsync = cnt_v >= 10'h1ea & cnt_v < 10'h1ec; // @[vga_ctrl.scala 80:57]
+  assign io_vga_rgb = cnt_h < 10'h12c & _T_9 ? mem_io_dataOut : 12'h0; // @[vga_ctrl.scala 61:20]
+  assign mem_clock = clock;
+  assign mem_io_addr = _GEN_3[17:0];
+  assign mem_io_dataIn = io_cpu_bits_data[11:0]; // @[vga_ctrl.scala 58:17]
+  assign mem_io_we = io_cpu_valid; // @[vga_ctrl.scala 52:22 vga_ctrl.scala 53:15 vga_ctrl.scala 55:15]
+  always @(posedge clock) begin
+    if (reset) begin // @[vga_ctrl.scala 32:22]
+      cnt_h <= 10'h0; // @[vga_ctrl.scala 32:22]
+    end else if (cnt_h == _T_30) begin // @[vga_ctrl.scala 63:35]
+      cnt_h <= 10'h0; // @[vga_ctrl.scala 64:11]
+    end else begin
+      cnt_h <= _T_33; // @[vga_ctrl.scala 66:11]
+    end
+    if (reset) begin // @[vga_ctrl.scala 33:22]
+      cnt_v <= 10'h0; // @[vga_ctrl.scala 33:22]
+    end else if (cnt_v == _T_35 & _T_31) begin // @[vga_ctrl.scala 71:68]
+      cnt_v <= 10'h0; // @[vga_ctrl.scala 72:11]
+    end else if (_T_31) begin // @[vga_ctrl.scala 73:41]
+      cnt_v <= _T_20; // @[vga_ctrl.scala 74:11]
+    end
+  end
+// Register and memory initialization
+`ifdef RANDOMIZE_GARBAGE_ASSIGN
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_INVALID_ASSIGN
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_REG_INIT
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_MEM_INIT
+`define RANDOMIZE
+`endif
+`ifndef RANDOM
+`define RANDOM $random
+`endif
+`ifdef RANDOMIZE_MEM_INIT
+  integer initvar;
+`endif
+`ifndef SYNTHESIS
+`ifdef FIRRTL_BEFORE_INITIAL
+`FIRRTL_BEFORE_INITIAL
+`endif
+initial begin
+  `ifdef RANDOMIZE
+    `ifdef INIT_RANDOM
+      `INIT_RANDOM
+    `endif
+    `ifndef VERILATOR
+      `ifdef RANDOMIZE_DELAY
+        #`RANDOMIZE_DELAY begin end
+      `else
+        #0.002 begin end
+      `endif
+    `endif
+`ifdef RANDOMIZE_REG_INIT
+  _RAND_0 = {1{`RANDOM}};
+  cnt_h = _RAND_0[9:0];
+  _RAND_1 = {1{`RANDOM}};
+  cnt_v = _RAND_1[9:0];
+`endif // RANDOMIZE_REG_INIT
+  `endif // RANDOMIZE
+end // initial
+`ifdef FIRRTL_AFTER_INITIAL
+`FIRRTL_AFTER_INITIAL
+`endif
+`endif // SYNTHESIS
+endmodule
+module vga(
+  input         clock,
+  input         reset,
+  output        io_hsync,
+  output        io_vsync,
+  output [11:0] io_vga_rgb,
+  input         io_cpu_req_valid,
+  input  [17:0] io_cpu_req_bits_addr,
+  input  [17:0] io_cpu_req_bits_data,
+  output        io_cpu_resp_valid
+);
+`ifdef RANDOMIZE_REG_INIT
+  reg [31:0] _RAND_0;
+  reg [31:0] _RAND_1;
+  reg [31:0] _RAND_2;
+  reg [31:0] _RAND_3;
+`endif // RANDOMIZE_REG_INIT
+  wire  vga_ctrl_clock; // @[vga.scala 28:11]
+  wire  vga_ctrl_reset; // @[vga.scala 28:11]
+  wire  vga_ctrl_io_hsync; // @[vga.scala 28:11]
+  wire  vga_ctrl_io_vsync; // @[vga.scala 28:11]
+  wire  vga_ctrl_io_cpu_valid; // @[vga.scala 28:11]
+  wire [17:0] vga_ctrl_io_cpu_bits_addr; // @[vga.scala 28:11]
+  wire [17:0] vga_ctrl_io_cpu_bits_data; // @[vga.scala 28:11]
+  wire [11:0] vga_ctrl_io_vga_rgb; // @[vga.scala 28:11]
+  wire  _T_1 = ~reset; // @[vga.scala 13:26]
+  reg  clkreg; // @[vga.scala 14:12]
+  reg [1:0] cnt; // @[vga.scala 17:12]
+  reg  state; // @[vga.scala 21:12]
+  reg [1:0] delay; // @[vga.scala 24:12]
+  wire  _T_11 = ~state; // @[Conditional.scala 37:30]
+  wire  _GEN_1 = io_cpu_req_valid | state; // @[vga.scala 37:30 vga.scala 39:15 vga.scala 21:12]
+  wire [1:0] _T_15 = delay + 2'h1; // @[vga.scala 46:24]
+  wire [1:0] _T_19 = cnt + 2'h1; // @[vga.scala 54:16]
+  wire  _GEN_10 = cnt == 2'h1 ? ~clkreg : clkreg; // @[vga.scala 50:21 vga.scala 52:12 vga.scala 14:12]
+  vga_ctrl vga_ctrl ( // @[vga.scala 28:11]
+    .clock(vga_ctrl_clock),
+    .reset(vga_ctrl_reset),
+    .io_hsync(vga_ctrl_io_hsync),
+    .io_vsync(vga_ctrl_io_vsync),
+    .io_cpu_valid(vga_ctrl_io_cpu_valid),
+    .io_cpu_bits_addr(vga_ctrl_io_cpu_bits_addr),
+    .io_cpu_bits_data(vga_ctrl_io_cpu_bits_data),
+    .io_vga_rgb(vga_ctrl_io_vga_rgb)
+  );
+  assign io_hsync = vga_ctrl_io_hsync; // @[vga.scala 57:12]
+  assign io_vsync = vga_ctrl_io_vsync; // @[vga.scala 58:12]
+  assign io_vga_rgb = vga_ctrl_io_vga_rgb; // @[vga.scala 56:14]
+  assign io_cpu_resp_valid = ~state; // @[Conditional.scala 37:30]
+  assign vga_ctrl_clock = clkreg; // @[vga.scala 27:51]
+  assign vga_ctrl_reset = ~reset; // @[vga.scala 27:55]
+  assign vga_ctrl_io_cpu_valid = io_cpu_req_valid; // @[vga.scala 31:25]
+  assign vga_ctrl_io_cpu_bits_addr = io_cpu_req_bits_addr; // @[vga.scala 30:24]
+  assign vga_ctrl_io_cpu_bits_data = io_cpu_req_bits_data; // @[vga.scala 30:24]
+  always @(posedge clock) begin
+    clkreg <= _T_1 | _GEN_10; // @[vga.scala 14:12 vga.scala 14:12]
+    if (_T_1) begin // @[vga.scala 17:12]
+      cnt <= 2'h0; // @[vga.scala 17:12]
+    end else if (cnt == 2'h1) begin // @[vga.scala 50:21]
+      cnt <= 2'h0; // @[vga.scala 51:9]
+    end else begin
+      cnt <= _T_19; // @[vga.scala 54:9]
+    end
+    if (_T_1) begin // @[vga.scala 21:12]
+      state <= 1'h0; // @[vga.scala 21:12]
+    end else if (_T_11) begin // @[Conditional.scala 40:58]
+      state <= _GEN_1;
+    end else if (state) begin // @[Conditional.scala 39:67]
+      if (delay == 2'h3) begin // @[vga.scala 43:27]
+        state <= 1'h0; // @[vga.scala 44:15]
+      end
+    end
+    if (_T_1) begin // @[vga.scala 24:12]
+      delay <= 2'h0; // @[vga.scala 24:12]
+    end else if (_T_11) begin // @[Conditional.scala 40:58]
+      if (io_cpu_req_valid) begin // @[vga.scala 37:30]
+        delay <= 2'h0; // @[vga.scala 38:15]
+      end
+    end else if (state) begin // @[Conditional.scala 39:67]
+      if (!(delay == 2'h3)) begin // @[vga.scala 43:27]
+        delay <= _T_15; // @[vga.scala 46:15]
+      end
+    end
+  end
+// Register and memory initialization
+`ifdef RANDOMIZE_GARBAGE_ASSIGN
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_INVALID_ASSIGN
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_REG_INIT
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_MEM_INIT
+`define RANDOMIZE
+`endif
+`ifndef RANDOM
+`define RANDOM $random
+`endif
+`ifdef RANDOMIZE_MEM_INIT
+  integer initvar;
+`endif
+`ifndef SYNTHESIS
+`ifdef FIRRTL_BEFORE_INITIAL
+`FIRRTL_BEFORE_INITIAL
+`endif
+initial begin
+  `ifdef RANDOMIZE
+    `ifdef INIT_RANDOM
+      `INIT_RANDOM
+    `endif
+    `ifndef VERILATOR
+      `ifdef RANDOMIZE_DELAY
+        #`RANDOMIZE_DELAY begin end
+      `else
+        #0.002 begin end
+      `endif
+    `endif
+`ifdef RANDOMIZE_REG_INIT
+  _RAND_0 = {1{`RANDOM}};
+  clkreg = _RAND_0[0:0];
+  _RAND_1 = {1{`RANDOM}};
+  cnt = _RAND_1[1:0];
+  _RAND_2 = {1{`RANDOM}};
+  state = _RAND_2[0:0];
+  _RAND_3 = {1{`RANDOM}};
+  delay = _RAND_3[1:0];
+`endif // RANDOMIZE_REG_INIT
+  `endif // RANDOMIZE
+end // initial
+`ifdef FIRRTL_AFTER_INITIAL
+`FIRRTL_AFTER_INITIAL
+`endif
+`endif // SYNTHESIS
+endmodule
 module Tile(
   input         clock,
   input         reset,
@@ -9055,278 +9426,294 @@ module Tile(
   input         io_AXI_s_axi_rvalid,
   output        io_AXI_s_axi_rready,
   output        io_txd,
-  input         io_rxd
+  input         io_rxd,
+  output        io_hsync,
+  output        io_vsync,
+  output [11:0] io_vga_rgb
 );
-  wire  dfc_table_clock; // @[Tile.scala 120:25]
-  wire  dfc_table_reset; // @[Tile.scala 120:25]
-  wire  dfc_table_io_cpu1_w_data_valid; // @[Tile.scala 120:25]
-  wire [31:0] dfc_table_io_cpu1_w_data_bits_listenAddr; // @[Tile.scala 120:25]
-  wire [15:0] dfc_table_io_cpu1_w_data_bits_wPid; // @[Tile.scala 120:25]
-  wire  dfc_table_io_cpu1_l_data_valid; // @[Tile.scala 120:25]
-  wire [31:0] dfc_table_io_cpu1_l_data_bits_listenAddr; // @[Tile.scala 120:25]
-  wire  dfc_table_io_cpu1_e_data_ready; // @[Tile.scala 120:25]
-  wire  dfc_table_io_cpu1_e_data_valid; // @[Tile.scala 120:25]
-  wire [15:0] dfc_table_io_cpu1_e_data_bits_pid; // @[Tile.scala 120:25]
-  wire  dfc_table_io_cpu_f_data_valid; // @[Tile.scala 120:25]
-  wire  dfc_table_io_cpu_f_data_bits_full_sig; // @[Tile.scala 120:25]
-  wire  core_clock; // @[Tile.scala 125:20]
-  wire  core_reset; // @[Tile.scala 125:20]
-  wire  core_io_icache_req_valid; // @[Tile.scala 125:20]
-  wire [31:0] core_io_icache_req_bits_addr; // @[Tile.scala 125:20]
-  wire  core_io_icache_resp_valid; // @[Tile.scala 125:20]
-  wire [31:0] core_io_icache_resp_bits_data; // @[Tile.scala 125:20]
-  wire  core_io_dcache_abort; // @[Tile.scala 125:20]
-  wire  core_io_dcache_req_valid; // @[Tile.scala 125:20]
-  wire [31:0] core_io_dcache_req_bits_addr; // @[Tile.scala 125:20]
-  wire [31:0] core_io_dcache_req_bits_data; // @[Tile.scala 125:20]
-  wire [3:0] core_io_dcache_req_bits_mask; // @[Tile.scala 125:20]
-  wire  core_io_dcache_resp_valid; // @[Tile.scala 125:20]
-  wire [31:0] core_io_dcache_resp_bits_data; // @[Tile.scala 125:20]
-  wire  core_io_table_w_data_valid; // @[Tile.scala 125:20]
-  wire [31:0] core_io_table_w_data_bits_listenAddr; // @[Tile.scala 125:20]
-  wire [15:0] core_io_table_w_data_bits_wPid; // @[Tile.scala 125:20]
-  wire  core_io_table_l_data_valid; // @[Tile.scala 125:20]
-  wire [31:0] core_io_table_l_data_bits_listenAddr; // @[Tile.scala 125:20]
-  wire  core_io_table_e_data_ready; // @[Tile.scala 125:20]
-  wire  core_io_table_e_data_valid; // @[Tile.scala 125:20]
-  wire [15:0] core_io_table_e_data_bits_pid; // @[Tile.scala 125:20]
-  wire  core_io_table_f_data_valid; // @[Tile.scala 125:20]
-  wire  core_io_table_f_data_bits_full_sig; // @[Tile.scala 125:20]
-  wire  core_io_rxChannel_valid; // @[Tile.scala 125:20]
-  wire [1:0] core_pageFault; // @[Tile.scala 125:20]
-  wire  core_io_vmSwitch; // @[Tile.scala 125:20]
-  wire [31:0] core_io_in; // @[Tile.scala 125:20]
-  wire  core_clearPageFault; // @[Tile.scala 125:20]
-  wire [1:0] core_pageFault_0; // @[Tile.scala 125:20]
-  wire [31:0] core_satp; // @[Tile.scala 125:20]
-  wire  icache_clock; // @[Tile.scala 126:22]
-  wire  icache_reset; // @[Tile.scala 126:22]
-  wire  icache_io_cpu_abort; // @[Tile.scala 126:22]
-  wire  icache_io_cpu_req_valid; // @[Tile.scala 126:22]
-  wire [31:0] icache_io_cpu_req_bits_addr; // @[Tile.scala 126:22]
-  wire [31:0] icache_io_cpu_req_bits_data; // @[Tile.scala 126:22]
-  wire [3:0] icache_io_cpu_req_bits_mask; // @[Tile.scala 126:22]
-  wire  icache_io_cpu_resp_valid; // @[Tile.scala 126:22]
-  wire [31:0] icache_io_cpu_resp_bits_data; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_aw_ready; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_aw_valid; // @[Tile.scala 126:22]
-  wire [31:0] icache_io_nasti_aw_bits_addr; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_w_ready; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_w_valid; // @[Tile.scala 126:22]
-  wire [31:0] icache_io_nasti_w_bits_data; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_w_bits_last; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_b_ready; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_b_valid; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_ar_ready; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_ar_valid; // @[Tile.scala 126:22]
-  wire [31:0] icache_io_nasti_ar_bits_addr; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_r_ready; // @[Tile.scala 126:22]
-  wire  icache_io_nasti_r_valid; // @[Tile.scala 126:22]
-  wire [31:0] icache_io_nasti_r_bits_data; // @[Tile.scala 126:22]
-  wire  dcache_clock; // @[Tile.scala 127:22]
-  wire  dcache_reset; // @[Tile.scala 127:22]
-  wire  dcache_io_cpu_abort; // @[Tile.scala 127:22]
-  wire  dcache_io_cpu_req_valid; // @[Tile.scala 127:22]
-  wire [31:0] dcache_io_cpu_req_bits_addr; // @[Tile.scala 127:22]
-  wire [31:0] dcache_io_cpu_req_bits_data; // @[Tile.scala 127:22]
-  wire [3:0] dcache_io_cpu_req_bits_mask; // @[Tile.scala 127:22]
-  wire  dcache_io_cpu_resp_valid; // @[Tile.scala 127:22]
-  wire [31:0] dcache_io_cpu_resp_bits_data; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_aw_ready; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_aw_valid; // @[Tile.scala 127:22]
-  wire [31:0] dcache_io_nasti_aw_bits_addr; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_w_ready; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_w_valid; // @[Tile.scala 127:22]
-  wire [31:0] dcache_io_nasti_w_bits_data; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_w_bits_last; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_b_ready; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_b_valid; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_ar_ready; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_ar_valid; // @[Tile.scala 127:22]
-  wire [31:0] dcache_io_nasti_ar_bits_addr; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_r_ready; // @[Tile.scala 127:22]
-  wire  dcache_io_nasti_r_valid; // @[Tile.scala 127:22]
-  wire [31:0] dcache_io_nasti_r_bits_data; // @[Tile.scala 127:22]
-  wire  arb_clock; // @[Tile.scala 128:19]
-  wire  arb_reset; // @[Tile.scala 128:19]
-  wire  arb_io_icache_ar_ready; // @[Tile.scala 128:19]
-  wire  arb_io_icache_ar_valid; // @[Tile.scala 128:19]
-  wire [31:0] arb_io_icache_ar_bits_addr; // @[Tile.scala 128:19]
-  wire  arb_io_icache_r_ready; // @[Tile.scala 128:19]
-  wire  arb_io_icache_r_valid; // @[Tile.scala 128:19]
-  wire [31:0] arb_io_icache_r_bits_data; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_aw_ready; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_aw_valid; // @[Tile.scala 128:19]
-  wire [31:0] arb_io_dcache_aw_bits_addr; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_w_ready; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_w_valid; // @[Tile.scala 128:19]
-  wire [31:0] arb_io_dcache_w_bits_data; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_w_bits_last; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_b_ready; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_b_valid; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_ar_ready; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_ar_valid; // @[Tile.scala 128:19]
-  wire [31:0] arb_io_dcache_ar_bits_addr; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_r_ready; // @[Tile.scala 128:19]
-  wire  arb_io_dcache_r_valid; // @[Tile.scala 128:19]
-  wire [31:0] arb_io_dcache_r_bits_data; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_aw_ready; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_aw_valid; // @[Tile.scala 128:19]
-  wire [31:0] arb_io_nasti_aw_bits_addr; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_w_ready; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_w_valid; // @[Tile.scala 128:19]
-  wire [31:0] arb_io_nasti_w_bits_data; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_w_bits_last; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_b_ready; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_b_valid; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_ar_ready; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_ar_valid; // @[Tile.scala 128:19]
-  wire [31:0] arb_io_nasti_ar_bits_addr; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_r_ready; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_r_valid; // @[Tile.scala 128:19]
-  wire [31:0] arb_io_nasti_r_bits_data; // @[Tile.scala 128:19]
-  wire  arb_io_nasti_r_bits_last; // @[Tile.scala 128:19]
-  wire  selector_clock; // @[Tile.scala 129:24]
-  wire  selector_reset; // @[Tile.scala 129:24]
-  wire  selector_io_cpu_abort; // @[Tile.scala 129:24]
-  wire  selector_io_cpu_req_valid; // @[Tile.scala 129:24]
-  wire [31:0] selector_io_cpu_req_bits_addr; // @[Tile.scala 129:24]
-  wire [31:0] selector_io_cpu_req_bits_data; // @[Tile.scala 129:24]
-  wire [3:0] selector_io_cpu_req_bits_mask; // @[Tile.scala 129:24]
-  wire  selector_io_cpu_resp_valid; // @[Tile.scala 129:24]
-  wire [31:0] selector_io_cpu_resp_bits_data; // @[Tile.scala 129:24]
-  wire  selector_io_dcache_abort; // @[Tile.scala 129:24]
-  wire  selector_io_dcache_req_valid; // @[Tile.scala 129:24]
-  wire [31:0] selector_io_dcache_req_bits_addr; // @[Tile.scala 129:24]
-  wire [31:0] selector_io_dcache_req_bits_data; // @[Tile.scala 129:24]
-  wire [3:0] selector_io_dcache_req_bits_mask; // @[Tile.scala 129:24]
-  wire  selector_io_dcache_resp_valid; // @[Tile.scala 129:24]
-  wire [31:0] selector_io_dcache_resp_bits_data; // @[Tile.scala 129:24]
-  wire  selector_io_devices_req_valid; // @[Tile.scala 129:24]
-  wire [31:0] selector_io_devices_req_bits_addr; // @[Tile.scala 129:24]
-  wire [31:0] selector_io_devices_req_bits_data; // @[Tile.scala 129:24]
-  wire [3:0] selector_io_devices_req_bits_mask; // @[Tile.scala 129:24]
-  wire  selector_io_devices_resp_valid; // @[Tile.scala 129:24]
-  wire [31:0] selector_io_devices_resp_bits_data; // @[Tile.scala 129:24]
-  wire  immu_clock; // @[Tile.scala 130:20]
-  wire  immu_reset; // @[Tile.scala 130:20]
-  wire  immu_io_cpu_req_valid; // @[Tile.scala 130:20]
-  wire [31:0] immu_io_cpu_req_bits_addr; // @[Tile.scala 130:20]
-  wire  immu_io_cpu_resp_valid; // @[Tile.scala 130:20]
-  wire [31:0] immu_io_cpu_resp_bits_data; // @[Tile.scala 130:20]
-  wire  immu_io_cache_req_valid; // @[Tile.scala 130:20]
-  wire [31:0] immu_io_cache_req_bits_addr; // @[Tile.scala 130:20]
-  wire  immu_io_cache_resp_valid; // @[Tile.scala 130:20]
-  wire [31:0] immu_io_cache_resp_bits_data; // @[Tile.scala 130:20]
-  wire  immu_vmSwitch_0; // @[Tile.scala 130:20]
-  wire [31:0] immu_csrWdata_0; // @[Tile.scala 130:20]
-  wire  immu_clearPageFault_0; // @[Tile.scala 130:20]
-  wire [1:0] immu_pageFault_1; // @[Tile.scala 130:20]
-  wire [31:0] immu_satp_0; // @[Tile.scala 130:20]
-  wire  dmmu_clock; // @[Tile.scala 131:20]
-  wire  dmmu_reset; // @[Tile.scala 131:20]
-  wire  dmmu_io_cpu_abort; // @[Tile.scala 131:20]
-  wire  dmmu_io_cpu_req_valid; // @[Tile.scala 131:20]
-  wire [31:0] dmmu_io_cpu_req_bits_addr; // @[Tile.scala 131:20]
-  wire [31:0] dmmu_io_cpu_req_bits_data; // @[Tile.scala 131:20]
-  wire [3:0] dmmu_io_cpu_req_bits_mask; // @[Tile.scala 131:20]
-  wire  dmmu_io_cpu_resp_valid; // @[Tile.scala 131:20]
-  wire [31:0] dmmu_io_cpu_resp_bits_data; // @[Tile.scala 131:20]
-  wire  dmmu_io_cache_abort; // @[Tile.scala 131:20]
-  wire  dmmu_io_cache_req_valid; // @[Tile.scala 131:20]
-  wire [31:0] dmmu_io_cache_req_bits_addr; // @[Tile.scala 131:20]
-  wire [31:0] dmmu_io_cache_req_bits_data; // @[Tile.scala 131:20]
-  wire [3:0] dmmu_io_cache_req_bits_mask; // @[Tile.scala 131:20]
-  wire  dmmu_io_cache_resp_valid; // @[Tile.scala 131:20]
-  wire [31:0] dmmu_io_cache_resp_bits_data; // @[Tile.scala 131:20]
-  wire [1:0] dmmu_pageFault_0; // @[Tile.scala 131:20]
-  wire  dmmu_vmSwitch_0; // @[Tile.scala 131:20]
-  wire [31:0] dmmu_csrWdata_0; // @[Tile.scala 131:20]
-  wire  dmmu_clearPageFault_0; // @[Tile.scala 131:20]
-  wire [31:0] dmmu_satp_0; // @[Tile.scala 131:20]
-  wire  regmapper_clock; // @[Tile.scala 136:25]
-  wire  regmapper_io_selector_req_valid; // @[Tile.scala 136:25]
-  wire [31:0] regmapper_io_selector_req_bits_addr; // @[Tile.scala 136:25]
-  wire [31:0] regmapper_io_selector_req_bits_data; // @[Tile.scala 136:25]
-  wire [3:0] regmapper_io_selector_req_bits_mask; // @[Tile.scala 136:25]
-  wire  regmapper_io_selector_resp_valid; // @[Tile.scala 136:25]
-  wire [31:0] regmapper_io_selector_resp_bits_data; // @[Tile.scala 136:25]
-  wire  regmapper_io_uart_req_valid; // @[Tile.scala 136:25]
-  wire [31:0] regmapper_io_uart_req_bits_addr; // @[Tile.scala 136:25]
-  wire [31:0] regmapper_io_uart_req_bits_data; // @[Tile.scala 136:25]
-  wire  regmapper_io_uart_resp_valid; // @[Tile.scala 136:25]
-  wire [31:0] regmapper_io_uart_resp_bits_data; // @[Tile.scala 136:25]
-  wire  regmapper_io_rtc_req_valid; // @[Tile.scala 136:25]
-  wire [31:0] regmapper_io_rtc_req_bits_addr; // @[Tile.scala 136:25]
-  wire [31:0] regmapper_io_rtc_req_bits_data; // @[Tile.scala 136:25]
-  wire [3:0] regmapper_io_rtc_req_bits_mask; // @[Tile.scala 136:25]
-  wire  regmapper_io_rtc_resp_valid; // @[Tile.scala 136:25]
-  wire [31:0] regmapper_io_rtc_resp_bits_data; // @[Tile.scala 136:25]
-  wire  dram_io_nasti_aw_ready; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_aw_valid; // @[Tile.scala 139:20]
-  wire [31:0] dram_io_nasti_aw_bits_addr; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_w_ready; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_w_valid; // @[Tile.scala 139:20]
-  wire [31:0] dram_io_nasti_w_bits_data; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_w_bits_last; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_b_ready; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_b_valid; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_ar_ready; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_ar_valid; // @[Tile.scala 139:20]
-  wire [31:0] dram_io_nasti_ar_bits_addr; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_r_ready; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_r_valid; // @[Tile.scala 139:20]
-  wire [31:0] dram_io_nasti_r_bits_data; // @[Tile.scala 139:20]
-  wire  dram_io_nasti_r_bits_last; // @[Tile.scala 139:20]
-  wire [31:0] dram_io_AXI_s_axi_awaddr; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_awvalid; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_awready; // @[Tile.scala 139:20]
-  wire [31:0] dram_io_AXI_s_axi_wdata; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_wlast; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_wvalid; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_wready; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_bvalid; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_bready; // @[Tile.scala 139:20]
-  wire [31:0] dram_io_AXI_s_axi_araddr; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_arvalid; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_arready; // @[Tile.scala 139:20]
-  wire [31:0] dram_io_AXI_s_axi_rdata; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_rlast; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_rvalid; // @[Tile.scala 139:20]
-  wire  dram_io_AXI_s_axi_rready; // @[Tile.scala 139:20]
-  wire  uartController_clock; // @[Tile.scala 142:30]
-  wire  uartController_reset; // @[Tile.scala 142:30]
-  wire  uartController_io__cpu_req_valid; // @[Tile.scala 142:30]
-  wire [31:0] uartController_io__cpu_req_bits_addr; // @[Tile.scala 142:30]
-  wire [31:0] uartController_io__cpu_req_bits_data; // @[Tile.scala 142:30]
-  wire  uartController_io__cpu_resp_valid; // @[Tile.scala 142:30]
-  wire [31:0] uartController_io__cpu_resp_bits_data; // @[Tile.scala 142:30]
-  wire  uartController_io__rxChannel_ready; // @[Tile.scala 142:30]
-  wire  uartController_io__rxChannel_valid; // @[Tile.scala 142:30]
-  wire [7:0] uartController_io__rxChannel_bits; // @[Tile.scala 142:30]
-  wire  uartController_io__txChannel_ready; // @[Tile.scala 142:30]
-  wire  uartController_io__txChannel_valid; // @[Tile.scala 142:30]
-  wire [7:0] uartController_io__txChannel_bits; // @[Tile.scala 142:30]
-  wire  uartController_io_rxChannel_valid; // @[Tile.scala 142:30]
-  wire  uart_clock; // @[Tile.scala 143:20]
-  wire  uart_reset; // @[Tile.scala 143:20]
-  wire  uart_io_rxd; // @[Tile.scala 143:20]
-  wire  uart_io_txd; // @[Tile.scala 143:20]
-  wire  uart_io_rxChannel_ready; // @[Tile.scala 143:20]
-  wire  uart_io_rxChannel_valid; // @[Tile.scala 143:20]
-  wire [7:0] uart_io_rxChannel_bits; // @[Tile.scala 143:20]
-  wire  uart_io_txChannel_ready; // @[Tile.scala 143:20]
-  wire  uart_io_txChannel_valid; // @[Tile.scala 143:20]
-  wire [7:0] uart_io_txChannel_bits; // @[Tile.scala 143:20]
-  wire  rtc_clock; // @[Tile.scala 145:19]
-  wire  rtc_reset; // @[Tile.scala 145:19]
-  wire  rtc_io_req_valid; // @[Tile.scala 145:19]
-  wire [31:0] rtc_io_req_bits_addr; // @[Tile.scala 145:19]
-  wire [31:0] rtc_io_req_bits_data; // @[Tile.scala 145:19]
-  wire [3:0] rtc_io_req_bits_mask; // @[Tile.scala 145:19]
-  wire  rtc_io_resp_valid; // @[Tile.scala 145:19]
-  wire [31:0] rtc_io_resp_bits_data; // @[Tile.scala 145:19]
-  DFC_Table dfc_table ( // @[Tile.scala 120:25]
+  wire  dfc_table_clock; // @[Tile.scala 123:25]
+  wire  dfc_table_reset; // @[Tile.scala 123:25]
+  wire  dfc_table_io_cpu1_w_data_valid; // @[Tile.scala 123:25]
+  wire [31:0] dfc_table_io_cpu1_w_data_bits_listenAddr; // @[Tile.scala 123:25]
+  wire [15:0] dfc_table_io_cpu1_w_data_bits_wPid; // @[Tile.scala 123:25]
+  wire  dfc_table_io_cpu1_l_data_valid; // @[Tile.scala 123:25]
+  wire [31:0] dfc_table_io_cpu1_l_data_bits_listenAddr; // @[Tile.scala 123:25]
+  wire  dfc_table_io_cpu1_e_data_ready; // @[Tile.scala 123:25]
+  wire  dfc_table_io_cpu1_e_data_valid; // @[Tile.scala 123:25]
+  wire [15:0] dfc_table_io_cpu1_e_data_bits_pid; // @[Tile.scala 123:25]
+  wire  dfc_table_io_cpu_f_data_valid; // @[Tile.scala 123:25]
+  wire  dfc_table_io_cpu_f_data_bits_full_sig; // @[Tile.scala 123:25]
+  wire  core_clock; // @[Tile.scala 128:20]
+  wire  core_reset; // @[Tile.scala 128:20]
+  wire  core_io_icache_req_valid; // @[Tile.scala 128:20]
+  wire [31:0] core_io_icache_req_bits_addr; // @[Tile.scala 128:20]
+  wire  core_io_icache_resp_valid; // @[Tile.scala 128:20]
+  wire [31:0] core_io_icache_resp_bits_data; // @[Tile.scala 128:20]
+  wire  core_io_dcache_abort; // @[Tile.scala 128:20]
+  wire  core_io_dcache_req_valid; // @[Tile.scala 128:20]
+  wire [31:0] core_io_dcache_req_bits_addr; // @[Tile.scala 128:20]
+  wire [31:0] core_io_dcache_req_bits_data; // @[Tile.scala 128:20]
+  wire [3:0] core_io_dcache_req_bits_mask; // @[Tile.scala 128:20]
+  wire  core_io_dcache_resp_valid; // @[Tile.scala 128:20]
+  wire [31:0] core_io_dcache_resp_bits_data; // @[Tile.scala 128:20]
+  wire  core_io_table_w_data_valid; // @[Tile.scala 128:20]
+  wire [31:0] core_io_table_w_data_bits_listenAddr; // @[Tile.scala 128:20]
+  wire [15:0] core_io_table_w_data_bits_wPid; // @[Tile.scala 128:20]
+  wire  core_io_table_l_data_valid; // @[Tile.scala 128:20]
+  wire [31:0] core_io_table_l_data_bits_listenAddr; // @[Tile.scala 128:20]
+  wire  core_io_table_e_data_ready; // @[Tile.scala 128:20]
+  wire  core_io_table_e_data_valid; // @[Tile.scala 128:20]
+  wire [15:0] core_io_table_e_data_bits_pid; // @[Tile.scala 128:20]
+  wire  core_io_table_f_data_valid; // @[Tile.scala 128:20]
+  wire  core_io_table_f_data_bits_full_sig; // @[Tile.scala 128:20]
+  wire  core_io_rxChannel_valid; // @[Tile.scala 128:20]
+  wire [1:0] core_pageFault; // @[Tile.scala 128:20]
+  wire  core_io_vmSwitch; // @[Tile.scala 128:20]
+  wire [31:0] core_io_in; // @[Tile.scala 128:20]
+  wire  core_clearPageFault; // @[Tile.scala 128:20]
+  wire [1:0] core_pageFault_0; // @[Tile.scala 128:20]
+  wire [31:0] core_satp; // @[Tile.scala 128:20]
+  wire  icache_clock; // @[Tile.scala 129:22]
+  wire  icache_reset; // @[Tile.scala 129:22]
+  wire  icache_io_cpu_abort; // @[Tile.scala 129:22]
+  wire  icache_io_cpu_req_valid; // @[Tile.scala 129:22]
+  wire [31:0] icache_io_cpu_req_bits_addr; // @[Tile.scala 129:22]
+  wire [31:0] icache_io_cpu_req_bits_data; // @[Tile.scala 129:22]
+  wire [3:0] icache_io_cpu_req_bits_mask; // @[Tile.scala 129:22]
+  wire  icache_io_cpu_resp_valid; // @[Tile.scala 129:22]
+  wire [31:0] icache_io_cpu_resp_bits_data; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_aw_ready; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_aw_valid; // @[Tile.scala 129:22]
+  wire [31:0] icache_io_nasti_aw_bits_addr; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_w_ready; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_w_valid; // @[Tile.scala 129:22]
+  wire [31:0] icache_io_nasti_w_bits_data; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_w_bits_last; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_b_ready; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_b_valid; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_ar_ready; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_ar_valid; // @[Tile.scala 129:22]
+  wire [31:0] icache_io_nasti_ar_bits_addr; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_r_ready; // @[Tile.scala 129:22]
+  wire  icache_io_nasti_r_valid; // @[Tile.scala 129:22]
+  wire [31:0] icache_io_nasti_r_bits_data; // @[Tile.scala 129:22]
+  wire  dcache_clock; // @[Tile.scala 130:22]
+  wire  dcache_reset; // @[Tile.scala 130:22]
+  wire  dcache_io_cpu_abort; // @[Tile.scala 130:22]
+  wire  dcache_io_cpu_req_valid; // @[Tile.scala 130:22]
+  wire [31:0] dcache_io_cpu_req_bits_addr; // @[Tile.scala 130:22]
+  wire [31:0] dcache_io_cpu_req_bits_data; // @[Tile.scala 130:22]
+  wire [3:0] dcache_io_cpu_req_bits_mask; // @[Tile.scala 130:22]
+  wire  dcache_io_cpu_resp_valid; // @[Tile.scala 130:22]
+  wire [31:0] dcache_io_cpu_resp_bits_data; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_aw_ready; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_aw_valid; // @[Tile.scala 130:22]
+  wire [31:0] dcache_io_nasti_aw_bits_addr; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_w_ready; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_w_valid; // @[Tile.scala 130:22]
+  wire [31:0] dcache_io_nasti_w_bits_data; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_w_bits_last; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_b_ready; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_b_valid; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_ar_ready; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_ar_valid; // @[Tile.scala 130:22]
+  wire [31:0] dcache_io_nasti_ar_bits_addr; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_r_ready; // @[Tile.scala 130:22]
+  wire  dcache_io_nasti_r_valid; // @[Tile.scala 130:22]
+  wire [31:0] dcache_io_nasti_r_bits_data; // @[Tile.scala 130:22]
+  wire  arb_clock; // @[Tile.scala 131:19]
+  wire  arb_reset; // @[Tile.scala 131:19]
+  wire  arb_io_icache_ar_ready; // @[Tile.scala 131:19]
+  wire  arb_io_icache_ar_valid; // @[Tile.scala 131:19]
+  wire [31:0] arb_io_icache_ar_bits_addr; // @[Tile.scala 131:19]
+  wire  arb_io_icache_r_ready; // @[Tile.scala 131:19]
+  wire  arb_io_icache_r_valid; // @[Tile.scala 131:19]
+  wire [31:0] arb_io_icache_r_bits_data; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_aw_ready; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_aw_valid; // @[Tile.scala 131:19]
+  wire [31:0] arb_io_dcache_aw_bits_addr; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_w_ready; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_w_valid; // @[Tile.scala 131:19]
+  wire [31:0] arb_io_dcache_w_bits_data; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_w_bits_last; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_b_ready; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_b_valid; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_ar_ready; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_ar_valid; // @[Tile.scala 131:19]
+  wire [31:0] arb_io_dcache_ar_bits_addr; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_r_ready; // @[Tile.scala 131:19]
+  wire  arb_io_dcache_r_valid; // @[Tile.scala 131:19]
+  wire [31:0] arb_io_dcache_r_bits_data; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_aw_ready; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_aw_valid; // @[Tile.scala 131:19]
+  wire [31:0] arb_io_nasti_aw_bits_addr; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_w_ready; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_w_valid; // @[Tile.scala 131:19]
+  wire [31:0] arb_io_nasti_w_bits_data; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_w_bits_last; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_b_ready; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_b_valid; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_ar_ready; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_ar_valid; // @[Tile.scala 131:19]
+  wire [31:0] arb_io_nasti_ar_bits_addr; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_r_ready; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_r_valid; // @[Tile.scala 131:19]
+  wire [31:0] arb_io_nasti_r_bits_data; // @[Tile.scala 131:19]
+  wire  arb_io_nasti_r_bits_last; // @[Tile.scala 131:19]
+  wire  selector_clock; // @[Tile.scala 132:24]
+  wire  selector_reset; // @[Tile.scala 132:24]
+  wire  selector_io_cpu_abort; // @[Tile.scala 132:24]
+  wire  selector_io_cpu_req_valid; // @[Tile.scala 132:24]
+  wire [31:0] selector_io_cpu_req_bits_addr; // @[Tile.scala 132:24]
+  wire [31:0] selector_io_cpu_req_bits_data; // @[Tile.scala 132:24]
+  wire [3:0] selector_io_cpu_req_bits_mask; // @[Tile.scala 132:24]
+  wire  selector_io_cpu_resp_valid; // @[Tile.scala 132:24]
+  wire [31:0] selector_io_cpu_resp_bits_data; // @[Tile.scala 132:24]
+  wire  selector_io_dcache_abort; // @[Tile.scala 132:24]
+  wire  selector_io_dcache_req_valid; // @[Tile.scala 132:24]
+  wire [31:0] selector_io_dcache_req_bits_addr; // @[Tile.scala 132:24]
+  wire [31:0] selector_io_dcache_req_bits_data; // @[Tile.scala 132:24]
+  wire [3:0] selector_io_dcache_req_bits_mask; // @[Tile.scala 132:24]
+  wire  selector_io_dcache_resp_valid; // @[Tile.scala 132:24]
+  wire [31:0] selector_io_dcache_resp_bits_data; // @[Tile.scala 132:24]
+  wire  selector_io_devices_req_valid; // @[Tile.scala 132:24]
+  wire [31:0] selector_io_devices_req_bits_addr; // @[Tile.scala 132:24]
+  wire [31:0] selector_io_devices_req_bits_data; // @[Tile.scala 132:24]
+  wire [3:0] selector_io_devices_req_bits_mask; // @[Tile.scala 132:24]
+  wire  selector_io_devices_resp_valid; // @[Tile.scala 132:24]
+  wire [31:0] selector_io_devices_resp_bits_data; // @[Tile.scala 132:24]
+  wire  immu_clock; // @[Tile.scala 133:20]
+  wire  immu_reset; // @[Tile.scala 133:20]
+  wire  immu_io_cpu_req_valid; // @[Tile.scala 133:20]
+  wire [31:0] immu_io_cpu_req_bits_addr; // @[Tile.scala 133:20]
+  wire  immu_io_cpu_resp_valid; // @[Tile.scala 133:20]
+  wire [31:0] immu_io_cpu_resp_bits_data; // @[Tile.scala 133:20]
+  wire  immu_io_cache_req_valid; // @[Tile.scala 133:20]
+  wire [31:0] immu_io_cache_req_bits_addr; // @[Tile.scala 133:20]
+  wire  immu_io_cache_resp_valid; // @[Tile.scala 133:20]
+  wire [31:0] immu_io_cache_resp_bits_data; // @[Tile.scala 133:20]
+  wire  immu_vmSwitch_0; // @[Tile.scala 133:20]
+  wire [31:0] immu_csrWdata_0; // @[Tile.scala 133:20]
+  wire  immu_clearPageFault_0; // @[Tile.scala 133:20]
+  wire [1:0] immu_pageFault_1; // @[Tile.scala 133:20]
+  wire [31:0] immu_satp_0; // @[Tile.scala 133:20]
+  wire  dmmu_clock; // @[Tile.scala 134:20]
+  wire  dmmu_reset; // @[Tile.scala 134:20]
+  wire  dmmu_io_cpu_abort; // @[Tile.scala 134:20]
+  wire  dmmu_io_cpu_req_valid; // @[Tile.scala 134:20]
+  wire [31:0] dmmu_io_cpu_req_bits_addr; // @[Tile.scala 134:20]
+  wire [31:0] dmmu_io_cpu_req_bits_data; // @[Tile.scala 134:20]
+  wire [3:0] dmmu_io_cpu_req_bits_mask; // @[Tile.scala 134:20]
+  wire  dmmu_io_cpu_resp_valid; // @[Tile.scala 134:20]
+  wire [31:0] dmmu_io_cpu_resp_bits_data; // @[Tile.scala 134:20]
+  wire  dmmu_io_cache_abort; // @[Tile.scala 134:20]
+  wire  dmmu_io_cache_req_valid; // @[Tile.scala 134:20]
+  wire [31:0] dmmu_io_cache_req_bits_addr; // @[Tile.scala 134:20]
+  wire [31:0] dmmu_io_cache_req_bits_data; // @[Tile.scala 134:20]
+  wire [3:0] dmmu_io_cache_req_bits_mask; // @[Tile.scala 134:20]
+  wire  dmmu_io_cache_resp_valid; // @[Tile.scala 134:20]
+  wire [31:0] dmmu_io_cache_resp_bits_data; // @[Tile.scala 134:20]
+  wire [1:0] dmmu_pageFault_0; // @[Tile.scala 134:20]
+  wire  dmmu_vmSwitch_0; // @[Tile.scala 134:20]
+  wire [31:0] dmmu_csrWdata_0; // @[Tile.scala 134:20]
+  wire  dmmu_clearPageFault_0; // @[Tile.scala 134:20]
+  wire [31:0] dmmu_satp_0; // @[Tile.scala 134:20]
+  wire  regmapper_clock; // @[Tile.scala 139:25]
+  wire  regmapper_io_selector_req_valid; // @[Tile.scala 139:25]
+  wire [31:0] regmapper_io_selector_req_bits_addr; // @[Tile.scala 139:25]
+  wire [31:0] regmapper_io_selector_req_bits_data; // @[Tile.scala 139:25]
+  wire [3:0] regmapper_io_selector_req_bits_mask; // @[Tile.scala 139:25]
+  wire  regmapper_io_selector_resp_valid; // @[Tile.scala 139:25]
+  wire [31:0] regmapper_io_selector_resp_bits_data; // @[Tile.scala 139:25]
+  wire  regmapper_io_uart_req_valid; // @[Tile.scala 139:25]
+  wire [31:0] regmapper_io_uart_req_bits_addr; // @[Tile.scala 139:25]
+  wire [31:0] regmapper_io_uart_req_bits_data; // @[Tile.scala 139:25]
+  wire  regmapper_io_uart_resp_valid; // @[Tile.scala 139:25]
+  wire [31:0] regmapper_io_uart_resp_bits_data; // @[Tile.scala 139:25]
+  wire  regmapper_io_rtc_req_valid; // @[Tile.scala 139:25]
+  wire [31:0] regmapper_io_rtc_req_bits_addr; // @[Tile.scala 139:25]
+  wire [31:0] regmapper_io_rtc_req_bits_data; // @[Tile.scala 139:25]
+  wire [3:0] regmapper_io_rtc_req_bits_mask; // @[Tile.scala 139:25]
+  wire  regmapper_io_rtc_resp_valid; // @[Tile.scala 139:25]
+  wire [31:0] regmapper_io_rtc_resp_bits_data; // @[Tile.scala 139:25]
+  wire  regmapper_io_vga_req_valid; // @[Tile.scala 139:25]
+  wire [17:0] regmapper_io_vga_req_bits_addr; // @[Tile.scala 139:25]
+  wire [17:0] regmapper_io_vga_req_bits_data; // @[Tile.scala 139:25]
+  wire  regmapper_io_vga_resp_valid; // @[Tile.scala 139:25]
+  wire  dram_io_nasti_aw_ready; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_aw_valid; // @[Tile.scala 142:20]
+  wire [31:0] dram_io_nasti_aw_bits_addr; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_w_ready; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_w_valid; // @[Tile.scala 142:20]
+  wire [31:0] dram_io_nasti_w_bits_data; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_w_bits_last; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_b_ready; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_b_valid; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_ar_ready; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_ar_valid; // @[Tile.scala 142:20]
+  wire [31:0] dram_io_nasti_ar_bits_addr; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_r_ready; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_r_valid; // @[Tile.scala 142:20]
+  wire [31:0] dram_io_nasti_r_bits_data; // @[Tile.scala 142:20]
+  wire  dram_io_nasti_r_bits_last; // @[Tile.scala 142:20]
+  wire [31:0] dram_io_AXI_s_axi_awaddr; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_awvalid; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_awready; // @[Tile.scala 142:20]
+  wire [31:0] dram_io_AXI_s_axi_wdata; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_wlast; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_wvalid; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_wready; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_bvalid; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_bready; // @[Tile.scala 142:20]
+  wire [31:0] dram_io_AXI_s_axi_araddr; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_arvalid; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_arready; // @[Tile.scala 142:20]
+  wire [31:0] dram_io_AXI_s_axi_rdata; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_rlast; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_rvalid; // @[Tile.scala 142:20]
+  wire  dram_io_AXI_s_axi_rready; // @[Tile.scala 142:20]
+  wire  uartController_clock; // @[Tile.scala 145:30]
+  wire  uartController_reset; // @[Tile.scala 145:30]
+  wire  uartController_io__cpu_req_valid; // @[Tile.scala 145:30]
+  wire [31:0] uartController_io__cpu_req_bits_addr; // @[Tile.scala 145:30]
+  wire [31:0] uartController_io__cpu_req_bits_data; // @[Tile.scala 145:30]
+  wire  uartController_io__cpu_resp_valid; // @[Tile.scala 145:30]
+  wire [31:0] uartController_io__cpu_resp_bits_data; // @[Tile.scala 145:30]
+  wire  uartController_io__rxChannel_ready; // @[Tile.scala 145:30]
+  wire  uartController_io__rxChannel_valid; // @[Tile.scala 145:30]
+  wire [7:0] uartController_io__rxChannel_bits; // @[Tile.scala 145:30]
+  wire  uartController_io__txChannel_ready; // @[Tile.scala 145:30]
+  wire  uartController_io__txChannel_valid; // @[Tile.scala 145:30]
+  wire [7:0] uartController_io__txChannel_bits; // @[Tile.scala 145:30]
+  wire  uartController_io_rxChannel_valid; // @[Tile.scala 145:30]
+  wire  uart_clock; // @[Tile.scala 146:20]
+  wire  uart_reset; // @[Tile.scala 146:20]
+  wire  uart_io_rxd; // @[Tile.scala 146:20]
+  wire  uart_io_txd; // @[Tile.scala 146:20]
+  wire  uart_io_rxChannel_ready; // @[Tile.scala 146:20]
+  wire  uart_io_rxChannel_valid; // @[Tile.scala 146:20]
+  wire [7:0] uart_io_rxChannel_bits; // @[Tile.scala 146:20]
+  wire  uart_io_txChannel_ready; // @[Tile.scala 146:20]
+  wire  uart_io_txChannel_valid; // @[Tile.scala 146:20]
+  wire [7:0] uart_io_txChannel_bits; // @[Tile.scala 146:20]
+  wire  rtc_clock; // @[Tile.scala 148:19]
+  wire  rtc_reset; // @[Tile.scala 148:19]
+  wire  rtc_io_req_valid; // @[Tile.scala 148:19]
+  wire [31:0] rtc_io_req_bits_addr; // @[Tile.scala 148:19]
+  wire [31:0] rtc_io_req_bits_data; // @[Tile.scala 148:19]
+  wire [3:0] rtc_io_req_bits_mask; // @[Tile.scala 148:19]
+  wire  rtc_io_resp_valid; // @[Tile.scala 148:19]
+  wire [31:0] rtc_io_resp_bits_data; // @[Tile.scala 148:19]
+  wire  vga_clock; // @[Tile.scala 150:18]
+  wire  vga_reset; // @[Tile.scala 150:18]
+  wire  vga_io_hsync; // @[Tile.scala 150:18]
+  wire  vga_io_vsync; // @[Tile.scala 150:18]
+  wire [11:0] vga_io_vga_rgb; // @[Tile.scala 150:18]
+  wire  vga_io_cpu_req_valid; // @[Tile.scala 150:18]
+  wire [17:0] vga_io_cpu_req_bits_addr; // @[Tile.scala 150:18]
+  wire [17:0] vga_io_cpu_req_bits_data; // @[Tile.scala 150:18]
+  wire  vga_io_cpu_resp_valid; // @[Tile.scala 150:18]
+  DFC_Table dfc_table ( // @[Tile.scala 123:25]
     .clock(dfc_table_clock),
     .reset(dfc_table_reset),
     .io_cpu1_w_data_valid(dfc_table_io_cpu1_w_data_valid),
@@ -9340,7 +9727,7 @@ module Tile(
     .io_cpu_f_data_valid(dfc_table_io_cpu_f_data_valid),
     .io_cpu_f_data_bits_full_sig(dfc_table_io_cpu_f_data_bits_full_sig)
   );
-  Core core ( // @[Tile.scala 125:20]
+  Core core ( // @[Tile.scala 128:20]
     .clock(core_clock),
     .reset(core_reset),
     .io_icache_req_valid(core_io_icache_req_valid),
@@ -9372,7 +9759,7 @@ module Tile(
     .pageFault_0(core_pageFault_0),
     .satp(core_satp)
   );
-  Cache icache ( // @[Tile.scala 126:22]
+  Cache icache ( // @[Tile.scala 129:22]
     .clock(icache_clock),
     .reset(icache_reset),
     .io_cpu_abort(icache_io_cpu_abort),
@@ -9398,7 +9785,7 @@ module Tile(
     .io_nasti_r_valid(icache_io_nasti_r_valid),
     .io_nasti_r_bits_data(icache_io_nasti_r_bits_data)
   );
-  Cache dcache ( // @[Tile.scala 127:22]
+  Cache dcache ( // @[Tile.scala 130:22]
     .clock(dcache_clock),
     .reset(dcache_reset),
     .io_cpu_abort(dcache_io_cpu_abort),
@@ -9424,7 +9811,7 @@ module Tile(
     .io_nasti_r_valid(dcache_io_nasti_r_valid),
     .io_nasti_r_bits_data(dcache_io_nasti_r_bits_data)
   );
-  MemArbiter arb ( // @[Tile.scala 128:19]
+  MemArbiter arb ( // @[Tile.scala 131:19]
     .clock(arb_clock),
     .reset(arb_reset),
     .io_icache_ar_ready(arb_io_icache_ar_ready),
@@ -9465,7 +9852,7 @@ module Tile(
     .io_nasti_r_bits_data(arb_io_nasti_r_bits_data),
     .io_nasti_r_bits_last(arb_io_nasti_r_bits_last)
   );
-  Selector selector ( // @[Tile.scala 129:24]
+  Selector selector ( // @[Tile.scala 132:24]
     .clock(selector_clock),
     .reset(selector_reset),
     .io_cpu_abort(selector_io_cpu_abort),
@@ -9489,7 +9876,7 @@ module Tile(
     .io_devices_resp_valid(selector_io_devices_resp_valid),
     .io_devices_resp_bits_data(selector_io_devices_resp_bits_data)
   );
-  MMU immu ( // @[Tile.scala 130:20]
+  MMU immu ( // @[Tile.scala 133:20]
     .clock(immu_clock),
     .reset(immu_reset),
     .io_cpu_req_valid(immu_io_cpu_req_valid),
@@ -9506,7 +9893,7 @@ module Tile(
     .pageFault_1(immu_pageFault_1),
     .satp_0(immu_satp_0)
   );
-  MMU_1 dmmu ( // @[Tile.scala 131:20]
+  MMU_1 dmmu ( // @[Tile.scala 134:20]
     .clock(dmmu_clock),
     .reset(dmmu_reset),
     .io_cpu_abort(dmmu_io_cpu_abort),
@@ -9529,7 +9916,7 @@ module Tile(
     .clearPageFault_0(dmmu_clearPageFault_0),
     .satp_0(dmmu_satp_0)
   );
-  RegMapper regmapper ( // @[Tile.scala 136:25]
+  RegMapper regmapper ( // @[Tile.scala 139:25]
     .clock(regmapper_clock),
     .io_selector_req_valid(regmapper_io_selector_req_valid),
     .io_selector_req_bits_addr(regmapper_io_selector_req_bits_addr),
@@ -9547,9 +9934,13 @@ module Tile(
     .io_rtc_req_bits_data(regmapper_io_rtc_req_bits_data),
     .io_rtc_req_bits_mask(regmapper_io_rtc_req_bits_mask),
     .io_rtc_resp_valid(regmapper_io_rtc_resp_valid),
-    .io_rtc_resp_bits_data(regmapper_io_rtc_resp_bits_data)
+    .io_rtc_resp_bits_data(regmapper_io_rtc_resp_bits_data),
+    .io_vga_req_valid(regmapper_io_vga_req_valid),
+    .io_vga_req_bits_addr(regmapper_io_vga_req_bits_addr),
+    .io_vga_req_bits_data(regmapper_io_vga_req_bits_data),
+    .io_vga_resp_valid(regmapper_io_vga_resp_valid)
   );
-  DRAM dram ( // @[Tile.scala 139:20]
+  DRAM dram ( // @[Tile.scala 142:20]
     .io_nasti_aw_ready(dram_io_nasti_aw_ready),
     .io_nasti_aw_valid(dram_io_nasti_aw_valid),
     .io_nasti_aw_bits_addr(dram_io_nasti_aw_bits_addr),
@@ -9583,7 +9974,7 @@ module Tile(
     .io_AXI_s_axi_rvalid(dram_io_AXI_s_axi_rvalid),
     .io_AXI_s_axi_rready(dram_io_AXI_s_axi_rready)
   );
-  UartController uartController ( // @[Tile.scala 142:30]
+  UartController uartController ( // @[Tile.scala 145:30]
     .clock(uartController_clock),
     .reset(uartController_reset),
     .io__cpu_req_valid(uartController_io__cpu_req_valid),
@@ -9599,7 +9990,7 @@ module Tile(
     .io__txChannel_bits(uartController_io__txChannel_bits),
     .io_rxChannel_valid(uartController_io_rxChannel_valid)
   );
-  Uart uart ( // @[Tile.scala 143:20]
+  Uart uart ( // @[Tile.scala 146:20]
     .clock(uart_clock),
     .reset(uart_reset),
     .io_rxd(uart_io_rxd),
@@ -9611,7 +10002,7 @@ module Tile(
     .io_txChannel_valid(uart_io_txChannel_valid),
     .io_txChannel_bits(uart_io_txChannel_bits)
   );
-  RTC rtc ( // @[Tile.scala 145:19]
+  RTC rtc ( // @[Tile.scala 148:19]
     .clock(rtc_clock),
     .reset(rtc_reset),
     .io_req_valid(rtc_io_req_valid),
@@ -9621,170 +10012,190 @@ module Tile(
     .io_resp_valid(rtc_io_resp_valid),
     .io_resp_bits_data(rtc_io_resp_bits_data)
   );
-  assign io_AXI_s_axi_awid = 4'h0; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_awaddr = dram_io_AXI_s_axi_awaddr; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_awlen = 8'h0; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_awsize = 3'h2; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_awburst = 2'h1; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_awvalid = dram_io_AXI_s_axi_awvalid; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_wdata = dram_io_AXI_s_axi_wdata; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_wstrb = 8'hf; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_wlast = dram_io_AXI_s_axi_wlast; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_wvalid = dram_io_AXI_s_axi_wvalid; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_bready = dram_io_AXI_s_axi_bready; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_arid = 4'h0; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_araddr = dram_io_AXI_s_axi_araddr; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_arlen = 8'h0; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_arsize = 3'h2; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_arburst = 2'h1; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_arvalid = dram_io_AXI_s_axi_arvalid; // @[Tile.scala 187:10]
-  assign io_AXI_s_axi_rready = dram_io_AXI_s_axi_rready; // @[Tile.scala 187:10]
-  assign io_txd = uart_io_txd; // @[Tile.scala 173:15]
+  vga vga ( // @[Tile.scala 150:18]
+    .clock(vga_clock),
+    .reset(vga_reset),
+    .io_hsync(vga_io_hsync),
+    .io_vsync(vga_io_vsync),
+    .io_vga_rgb(vga_io_vga_rgb),
+    .io_cpu_req_valid(vga_io_cpu_req_valid),
+    .io_cpu_req_bits_addr(vga_io_cpu_req_bits_addr),
+    .io_cpu_req_bits_data(vga_io_cpu_req_bits_data),
+    .io_cpu_resp_valid(vga_io_cpu_resp_valid)
+  );
+  assign io_AXI_s_axi_awid = 4'h0; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_awaddr = dram_io_AXI_s_axi_awaddr; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_awlen = 8'h0; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_awsize = 3'h2; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_awburst = 2'h1; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_awvalid = dram_io_AXI_s_axi_awvalid; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_wdata = dram_io_AXI_s_axi_wdata; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_wstrb = 8'hf; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_wlast = dram_io_AXI_s_axi_wlast; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_wvalid = dram_io_AXI_s_axi_wvalid; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_bready = dram_io_AXI_s_axi_bready; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_arid = 4'h0; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_araddr = dram_io_AXI_s_axi_araddr; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_arlen = 8'h0; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_arsize = 3'h2; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_arburst = 2'h1; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_arvalid = dram_io_AXI_s_axi_arvalid; // @[Tile.scala 196:10]
+  assign io_AXI_s_axi_rready = dram_io_AXI_s_axi_rready; // @[Tile.scala 196:10]
+  assign io_txd = uart_io_txd; // @[Tile.scala 182:15]
+  assign io_hsync = vga_io_hsync; // @[Tile.scala 173:12]
+  assign io_vsync = vga_io_vsync; // @[Tile.scala 174:12]
+  assign io_vga_rgb = vga_io_vga_rgb; // @[Tile.scala 175:14]
   assign dfc_table_clock = clock;
   assign dfc_table_reset = reset;
-  assign dfc_table_io_cpu1_w_data_valid = core_io_table_w_data_valid; // @[Tile.scala 190:23]
-  assign dfc_table_io_cpu1_w_data_bits_listenAddr = core_io_table_w_data_bits_listenAddr; // @[Tile.scala 190:23]
-  assign dfc_table_io_cpu1_w_data_bits_wPid = core_io_table_w_data_bits_wPid; // @[Tile.scala 190:23]
-  assign dfc_table_io_cpu1_l_data_valid = core_io_table_l_data_valid; // @[Tile.scala 191:23]
-  assign dfc_table_io_cpu1_l_data_bits_listenAddr = core_io_table_l_data_bits_listenAddr; // @[Tile.scala 191:23]
-  assign dfc_table_io_cpu1_e_data_ready = core_io_table_e_data_ready; // @[Tile.scala 201:19]
+  assign dfc_table_io_cpu1_w_data_valid = core_io_table_w_data_valid; // @[Tile.scala 199:23]
+  assign dfc_table_io_cpu1_w_data_bits_listenAddr = core_io_table_w_data_bits_listenAddr; // @[Tile.scala 199:23]
+  assign dfc_table_io_cpu1_w_data_bits_wPid = core_io_table_w_data_bits_wPid; // @[Tile.scala 199:23]
+  assign dfc_table_io_cpu1_l_data_valid = core_io_table_l_data_valid; // @[Tile.scala 200:23]
+  assign dfc_table_io_cpu1_l_data_bits_listenAddr = core_io_table_l_data_bits_listenAddr; // @[Tile.scala 200:23]
+  assign dfc_table_io_cpu1_e_data_ready = core_io_table_e_data_ready; // @[Tile.scala 210:19]
   assign core_clock = clock;
   assign core_reset = reset;
-  assign core_io_icache_resp_valid = immu_io_cpu_resp_valid; // @[Tile.scala 158:18]
-  assign core_io_icache_resp_bits_data = immu_io_cpu_resp_bits_data; // @[Tile.scala 158:18]
-  assign core_io_dcache_resp_valid = selector_io_cpu_resp_valid; // @[Tile.scala 160:18]
-  assign core_io_dcache_resp_bits_data = selector_io_cpu_resp_bits_data; // @[Tile.scala 160:18]
-  assign core_io_table_e_data_valid = dfc_table_io_cpu1_e_data_valid; // @[Tile.scala 201:19]
-  assign core_io_table_e_data_bits_pid = dfc_table_io_cpu1_e_data_bits_pid; // @[Tile.scala 201:19]
-  assign core_io_table_f_data_valid = dfc_table_io_cpu_f_data_valid; // @[Tile.scala 202:19]
-  assign core_io_table_f_data_bits_full_sig = dfc_table_io_cpu_f_data_bits_full_sig; // @[Tile.scala 202:19]
+  assign core_io_icache_resp_valid = immu_io_cpu_resp_valid; // @[Tile.scala 162:18]
+  assign core_io_icache_resp_bits_data = immu_io_cpu_resp_bits_data; // @[Tile.scala 162:18]
+  assign core_io_dcache_resp_valid = selector_io_cpu_resp_valid; // @[Tile.scala 164:18]
+  assign core_io_dcache_resp_bits_data = selector_io_cpu_resp_bits_data; // @[Tile.scala 164:18]
+  assign core_io_table_e_data_valid = dfc_table_io_cpu1_e_data_valid; // @[Tile.scala 210:19]
+  assign core_io_table_e_data_bits_pid = dfc_table_io_cpu1_e_data_bits_pid; // @[Tile.scala 210:19]
+  assign core_io_table_f_data_valid = dfc_table_io_cpu_f_data_valid; // @[Tile.scala 211:19]
+  assign core_io_table_f_data_bits_full_sig = dfc_table_io_cpu_f_data_bits_full_sig; // @[Tile.scala 211:19]
   assign core_io_rxChannel_valid = uartController_io_rxChannel_valid;
   assign core_pageFault = dmmu_pageFault_0;
   assign core_pageFault_0 = immu_pageFault_1;
   assign icache_clock = clock;
   assign icache_reset = reset;
-  assign icache_io_cpu_abort = 1'h0; // @[Tile.scala 159:17]
-  assign icache_io_cpu_req_valid = immu_io_cache_req_valid; // @[Tile.scala 159:17]
-  assign icache_io_cpu_req_bits_addr = immu_io_cache_req_bits_addr; // @[Tile.scala 159:17]
-  assign icache_io_cpu_req_bits_data = 32'h0; // @[Tile.scala 159:17]
-  assign icache_io_cpu_req_bits_mask = 4'h0; // @[Tile.scala 159:17]
-  assign icache_io_nasti_aw_ready = 1'h0; // @[Tile.scala 180:17]
-  assign icache_io_nasti_w_ready = 1'h0; // @[Tile.scala 180:17]
-  assign icache_io_nasti_b_valid = 1'h0; // @[Tile.scala 180:17]
-  assign icache_io_nasti_ar_ready = arb_io_icache_ar_ready; // @[Tile.scala 180:17]
-  assign icache_io_nasti_r_valid = arb_io_icache_r_valid; // @[Tile.scala 180:17]
-  assign icache_io_nasti_r_bits_data = arb_io_icache_r_bits_data; // @[Tile.scala 180:17]
+  assign icache_io_cpu_abort = 1'h0; // @[Tile.scala 163:17]
+  assign icache_io_cpu_req_valid = immu_io_cache_req_valid; // @[Tile.scala 163:17]
+  assign icache_io_cpu_req_bits_addr = immu_io_cache_req_bits_addr; // @[Tile.scala 163:17]
+  assign icache_io_cpu_req_bits_data = 32'h0; // @[Tile.scala 163:17]
+  assign icache_io_cpu_req_bits_mask = 4'h0; // @[Tile.scala 163:17]
+  assign icache_io_nasti_aw_ready = 1'h0; // @[Tile.scala 189:17]
+  assign icache_io_nasti_w_ready = 1'h0; // @[Tile.scala 189:17]
+  assign icache_io_nasti_b_valid = 1'h0; // @[Tile.scala 189:17]
+  assign icache_io_nasti_ar_ready = arb_io_icache_ar_ready; // @[Tile.scala 189:17]
+  assign icache_io_nasti_r_valid = arb_io_icache_r_valid; // @[Tile.scala 189:17]
+  assign icache_io_nasti_r_bits_data = arb_io_icache_r_bits_data; // @[Tile.scala 189:17]
   assign dcache_clock = clock;
   assign dcache_reset = reset;
-  assign dcache_io_cpu_abort = dmmu_io_cache_abort; // @[Tile.scala 165:17]
-  assign dcache_io_cpu_req_valid = dmmu_io_cache_req_valid; // @[Tile.scala 165:17]
-  assign dcache_io_cpu_req_bits_addr = dmmu_io_cache_req_bits_addr; // @[Tile.scala 165:17]
-  assign dcache_io_cpu_req_bits_data = dmmu_io_cache_req_bits_data; // @[Tile.scala 165:17]
-  assign dcache_io_cpu_req_bits_mask = dmmu_io_cache_req_bits_mask; // @[Tile.scala 165:17]
-  assign dcache_io_nasti_aw_ready = arb_io_dcache_aw_ready; // @[Tile.scala 181:17]
-  assign dcache_io_nasti_w_ready = arb_io_dcache_w_ready; // @[Tile.scala 181:17]
-  assign dcache_io_nasti_b_valid = arb_io_dcache_b_valid; // @[Tile.scala 181:17]
-  assign dcache_io_nasti_ar_ready = arb_io_dcache_ar_ready; // @[Tile.scala 181:17]
-  assign dcache_io_nasti_r_valid = arb_io_dcache_r_valid; // @[Tile.scala 181:17]
-  assign dcache_io_nasti_r_bits_data = arb_io_dcache_r_bits_data; // @[Tile.scala 181:17]
+  assign dcache_io_cpu_abort = dmmu_io_cache_abort; // @[Tile.scala 169:17]
+  assign dcache_io_cpu_req_valid = dmmu_io_cache_req_valid; // @[Tile.scala 169:17]
+  assign dcache_io_cpu_req_bits_addr = dmmu_io_cache_req_bits_addr; // @[Tile.scala 169:17]
+  assign dcache_io_cpu_req_bits_data = dmmu_io_cache_req_bits_data; // @[Tile.scala 169:17]
+  assign dcache_io_cpu_req_bits_mask = dmmu_io_cache_req_bits_mask; // @[Tile.scala 169:17]
+  assign dcache_io_nasti_aw_ready = arb_io_dcache_aw_ready; // @[Tile.scala 190:17]
+  assign dcache_io_nasti_w_ready = arb_io_dcache_w_ready; // @[Tile.scala 190:17]
+  assign dcache_io_nasti_b_valid = arb_io_dcache_b_valid; // @[Tile.scala 190:17]
+  assign dcache_io_nasti_ar_ready = arb_io_dcache_ar_ready; // @[Tile.scala 190:17]
+  assign dcache_io_nasti_r_valid = arb_io_dcache_r_valid; // @[Tile.scala 190:17]
+  assign dcache_io_nasti_r_bits_data = arb_io_dcache_r_bits_data; // @[Tile.scala 190:17]
   assign arb_clock = clock;
   assign arb_reset = reset;
-  assign arb_io_icache_ar_valid = icache_io_nasti_ar_valid; // @[Tile.scala 180:17]
-  assign arb_io_icache_ar_bits_addr = icache_io_nasti_ar_bits_addr; // @[Tile.scala 180:17]
-  assign arb_io_icache_r_ready = icache_io_nasti_r_ready; // @[Tile.scala 180:17]
-  assign arb_io_dcache_aw_valid = dcache_io_nasti_aw_valid; // @[Tile.scala 181:17]
-  assign arb_io_dcache_aw_bits_addr = dcache_io_nasti_aw_bits_addr; // @[Tile.scala 181:17]
-  assign arb_io_dcache_w_valid = dcache_io_nasti_w_valid; // @[Tile.scala 181:17]
-  assign arb_io_dcache_w_bits_data = dcache_io_nasti_w_bits_data; // @[Tile.scala 181:17]
-  assign arb_io_dcache_w_bits_last = dcache_io_nasti_w_bits_last; // @[Tile.scala 181:17]
-  assign arb_io_dcache_b_ready = dcache_io_nasti_b_ready; // @[Tile.scala 181:17]
-  assign arb_io_dcache_ar_valid = dcache_io_nasti_ar_valid; // @[Tile.scala 181:17]
-  assign arb_io_dcache_ar_bits_addr = dcache_io_nasti_ar_bits_addr; // @[Tile.scala 181:17]
-  assign arb_io_dcache_r_ready = dcache_io_nasti_r_ready; // @[Tile.scala 181:17]
-  assign arb_io_nasti_aw_ready = dram_io_nasti_aw_ready; // @[Tile.scala 186:17]
-  assign arb_io_nasti_w_ready = dram_io_nasti_w_ready; // @[Tile.scala 186:17]
-  assign arb_io_nasti_b_valid = dram_io_nasti_b_valid; // @[Tile.scala 186:17]
-  assign arb_io_nasti_ar_ready = dram_io_nasti_ar_ready; // @[Tile.scala 186:17]
-  assign arb_io_nasti_r_valid = dram_io_nasti_r_valid; // @[Tile.scala 186:17]
-  assign arb_io_nasti_r_bits_data = dram_io_nasti_r_bits_data; // @[Tile.scala 186:17]
-  assign arb_io_nasti_r_bits_last = dram_io_nasti_r_bits_last; // @[Tile.scala 186:17]
+  assign arb_io_icache_ar_valid = icache_io_nasti_ar_valid; // @[Tile.scala 189:17]
+  assign arb_io_icache_ar_bits_addr = icache_io_nasti_ar_bits_addr; // @[Tile.scala 189:17]
+  assign arb_io_icache_r_ready = icache_io_nasti_r_ready; // @[Tile.scala 189:17]
+  assign arb_io_dcache_aw_valid = dcache_io_nasti_aw_valid; // @[Tile.scala 190:17]
+  assign arb_io_dcache_aw_bits_addr = dcache_io_nasti_aw_bits_addr; // @[Tile.scala 190:17]
+  assign arb_io_dcache_w_valid = dcache_io_nasti_w_valid; // @[Tile.scala 190:17]
+  assign arb_io_dcache_w_bits_data = dcache_io_nasti_w_bits_data; // @[Tile.scala 190:17]
+  assign arb_io_dcache_w_bits_last = dcache_io_nasti_w_bits_last; // @[Tile.scala 190:17]
+  assign arb_io_dcache_b_ready = dcache_io_nasti_b_ready; // @[Tile.scala 190:17]
+  assign arb_io_dcache_ar_valid = dcache_io_nasti_ar_valid; // @[Tile.scala 190:17]
+  assign arb_io_dcache_ar_bits_addr = dcache_io_nasti_ar_bits_addr; // @[Tile.scala 190:17]
+  assign arb_io_dcache_r_ready = dcache_io_nasti_r_ready; // @[Tile.scala 190:17]
+  assign arb_io_nasti_aw_ready = dram_io_nasti_aw_ready; // @[Tile.scala 195:17]
+  assign arb_io_nasti_w_ready = dram_io_nasti_w_ready; // @[Tile.scala 195:17]
+  assign arb_io_nasti_b_valid = dram_io_nasti_b_valid; // @[Tile.scala 195:17]
+  assign arb_io_nasti_ar_ready = dram_io_nasti_ar_ready; // @[Tile.scala 195:17]
+  assign arb_io_nasti_r_valid = dram_io_nasti_r_valid; // @[Tile.scala 195:17]
+  assign arb_io_nasti_r_bits_data = dram_io_nasti_r_bits_data; // @[Tile.scala 195:17]
+  assign arb_io_nasti_r_bits_last = dram_io_nasti_r_bits_last; // @[Tile.scala 195:17]
   assign selector_clock = clock;
   assign selector_reset = reset;
-  assign selector_io_cpu_abort = core_io_dcache_abort; // @[Tile.scala 160:18]
-  assign selector_io_cpu_req_valid = core_io_dcache_req_valid; // @[Tile.scala 160:18]
-  assign selector_io_cpu_req_bits_addr = core_io_dcache_req_bits_addr; // @[Tile.scala 160:18]
-  assign selector_io_cpu_req_bits_data = core_io_dcache_req_bits_data; // @[Tile.scala 160:18]
-  assign selector_io_cpu_req_bits_mask = core_io_dcache_req_bits_mask; // @[Tile.scala 160:18]
-  assign selector_io_dcache_resp_valid = dmmu_io_cpu_resp_valid; // @[Tile.scala 164:22]
-  assign selector_io_dcache_resp_bits_data = dmmu_io_cpu_resp_bits_data; // @[Tile.scala 164:22]
-  assign selector_io_devices_resp_valid = regmapper_io_selector_resp_valid; // @[Tile.scala 166:23]
-  assign selector_io_devices_resp_bits_data = regmapper_io_selector_resp_bits_data; // @[Tile.scala 166:23]
+  assign selector_io_cpu_abort = core_io_dcache_abort; // @[Tile.scala 164:18]
+  assign selector_io_cpu_req_valid = core_io_dcache_req_valid; // @[Tile.scala 164:18]
+  assign selector_io_cpu_req_bits_addr = core_io_dcache_req_bits_addr; // @[Tile.scala 164:18]
+  assign selector_io_cpu_req_bits_data = core_io_dcache_req_bits_data; // @[Tile.scala 164:18]
+  assign selector_io_cpu_req_bits_mask = core_io_dcache_req_bits_mask; // @[Tile.scala 164:18]
+  assign selector_io_dcache_resp_valid = dmmu_io_cpu_resp_valid; // @[Tile.scala 168:22]
+  assign selector_io_dcache_resp_bits_data = dmmu_io_cpu_resp_bits_data; // @[Tile.scala 168:22]
+  assign selector_io_devices_resp_valid = regmapper_io_selector_resp_valid; // @[Tile.scala 170:23]
+  assign selector_io_devices_resp_bits_data = regmapper_io_selector_resp_bits_data; // @[Tile.scala 170:23]
   assign immu_clock = clock;
   assign immu_reset = reset;
-  assign immu_io_cpu_req_valid = core_io_icache_req_valid; // @[Tile.scala 158:18]
-  assign immu_io_cpu_req_bits_addr = core_io_icache_req_bits_addr; // @[Tile.scala 158:18]
-  assign immu_io_cache_resp_valid = icache_io_cpu_resp_valid; // @[Tile.scala 159:17]
-  assign immu_io_cache_resp_bits_data = icache_io_cpu_resp_bits_data; // @[Tile.scala 159:17]
+  assign immu_io_cpu_req_valid = core_io_icache_req_valid; // @[Tile.scala 162:18]
+  assign immu_io_cpu_req_bits_addr = core_io_icache_req_bits_addr; // @[Tile.scala 162:18]
+  assign immu_io_cache_resp_valid = icache_io_cpu_resp_valid; // @[Tile.scala 163:17]
+  assign immu_io_cache_resp_bits_data = icache_io_cpu_resp_bits_data; // @[Tile.scala 163:17]
   assign immu_vmSwitch_0 = core_io_vmSwitch;
   assign immu_csrWdata_0 = core_io_in;
   assign immu_clearPageFault_0 = core_clearPageFault;
   assign immu_satp_0 = core_satp;
   assign dmmu_clock = clock;
   assign dmmu_reset = reset;
-  assign dmmu_io_cpu_abort = selector_io_dcache_abort; // @[Tile.scala 164:22]
-  assign dmmu_io_cpu_req_valid = selector_io_dcache_req_valid; // @[Tile.scala 164:22]
-  assign dmmu_io_cpu_req_bits_addr = selector_io_dcache_req_bits_addr; // @[Tile.scala 164:22]
-  assign dmmu_io_cpu_req_bits_data = selector_io_dcache_req_bits_data; // @[Tile.scala 164:22]
-  assign dmmu_io_cpu_req_bits_mask = selector_io_dcache_req_bits_mask; // @[Tile.scala 164:22]
-  assign dmmu_io_cache_resp_valid = dcache_io_cpu_resp_valid; // @[Tile.scala 165:17]
-  assign dmmu_io_cache_resp_bits_data = dcache_io_cpu_resp_bits_data; // @[Tile.scala 165:17]
+  assign dmmu_io_cpu_abort = selector_io_dcache_abort; // @[Tile.scala 168:22]
+  assign dmmu_io_cpu_req_valid = selector_io_dcache_req_valid; // @[Tile.scala 168:22]
+  assign dmmu_io_cpu_req_bits_addr = selector_io_dcache_req_bits_addr; // @[Tile.scala 168:22]
+  assign dmmu_io_cpu_req_bits_data = selector_io_dcache_req_bits_data; // @[Tile.scala 168:22]
+  assign dmmu_io_cpu_req_bits_mask = selector_io_dcache_req_bits_mask; // @[Tile.scala 168:22]
+  assign dmmu_io_cache_resp_valid = dcache_io_cpu_resp_valid; // @[Tile.scala 169:17]
+  assign dmmu_io_cache_resp_bits_data = dcache_io_cpu_resp_bits_data; // @[Tile.scala 169:17]
   assign dmmu_vmSwitch_0 = core_io_vmSwitch;
   assign dmmu_csrWdata_0 = core_io_in;
   assign dmmu_clearPageFault_0 = core_clearPageFault;
   assign dmmu_satp_0 = core_satp;
   assign regmapper_clock = clock;
-  assign regmapper_io_selector_req_valid = selector_io_devices_req_valid; // @[Tile.scala 166:23]
-  assign regmapper_io_selector_req_bits_addr = selector_io_devices_req_bits_addr; // @[Tile.scala 166:23]
-  assign regmapper_io_selector_req_bits_data = selector_io_devices_req_bits_data; // @[Tile.scala 166:23]
-  assign regmapper_io_selector_req_bits_mask = selector_io_devices_req_bits_mask; // @[Tile.scala 166:23]
-  assign regmapper_io_uart_resp_valid = uartController_io__cpu_resp_valid; // @[Tile.scala 168:21]
-  assign regmapper_io_uart_resp_bits_data = uartController_io__cpu_resp_bits_data; // @[Tile.scala 168:21]
-  assign regmapper_io_rtc_resp_valid = rtc_io_resp_valid; // @[Tile.scala 177:20]
-  assign regmapper_io_rtc_resp_bits_data = rtc_io_resp_bits_data; // @[Tile.scala 177:20]
-  assign dram_io_nasti_aw_valid = arb_io_nasti_aw_valid; // @[Tile.scala 186:17]
-  assign dram_io_nasti_aw_bits_addr = arb_io_nasti_aw_bits_addr; // @[Tile.scala 186:17]
-  assign dram_io_nasti_w_valid = arb_io_nasti_w_valid; // @[Tile.scala 186:17]
-  assign dram_io_nasti_w_bits_data = arb_io_nasti_w_bits_data; // @[Tile.scala 186:17]
-  assign dram_io_nasti_w_bits_last = arb_io_nasti_w_bits_last; // @[Tile.scala 186:17]
-  assign dram_io_nasti_b_ready = arb_io_nasti_b_ready; // @[Tile.scala 186:17]
-  assign dram_io_nasti_ar_valid = arb_io_nasti_ar_valid; // @[Tile.scala 186:17]
-  assign dram_io_nasti_ar_bits_addr = arb_io_nasti_ar_bits_addr; // @[Tile.scala 186:17]
-  assign dram_io_nasti_r_ready = arb_io_nasti_r_ready; // @[Tile.scala 186:17]
-  assign dram_io_AXI_s_axi_awready = io_AXI_s_axi_awready; // @[Tile.scala 187:10]
-  assign dram_io_AXI_s_axi_wready = io_AXI_s_axi_wready; // @[Tile.scala 187:10]
-  assign dram_io_AXI_s_axi_bvalid = io_AXI_s_axi_bvalid; // @[Tile.scala 187:10]
-  assign dram_io_AXI_s_axi_arready = io_AXI_s_axi_arready; // @[Tile.scala 187:10]
-  assign dram_io_AXI_s_axi_rdata = io_AXI_s_axi_rdata; // @[Tile.scala 187:10]
-  assign dram_io_AXI_s_axi_rlast = io_AXI_s_axi_rlast; // @[Tile.scala 187:10]
-  assign dram_io_AXI_s_axi_rvalid = io_AXI_s_axi_rvalid; // @[Tile.scala 187:10]
+  assign regmapper_io_selector_req_valid = selector_io_devices_req_valid; // @[Tile.scala 170:23]
+  assign regmapper_io_selector_req_bits_addr = selector_io_devices_req_bits_addr; // @[Tile.scala 170:23]
+  assign regmapper_io_selector_req_bits_data = selector_io_devices_req_bits_data; // @[Tile.scala 170:23]
+  assign regmapper_io_selector_req_bits_mask = selector_io_devices_req_bits_mask; // @[Tile.scala 170:23]
+  assign regmapper_io_uart_resp_valid = uartController_io__cpu_resp_valid; // @[Tile.scala 177:21]
+  assign regmapper_io_uart_resp_bits_data = uartController_io__cpu_resp_bits_data; // @[Tile.scala 177:21]
+  assign regmapper_io_rtc_resp_valid = rtc_io_resp_valid; // @[Tile.scala 186:20]
+  assign regmapper_io_rtc_resp_bits_data = rtc_io_resp_bits_data; // @[Tile.scala 186:20]
+  assign regmapper_io_vga_resp_valid = vga_io_cpu_resp_valid; // @[Tile.scala 172:19]
+  assign dram_io_nasti_aw_valid = arb_io_nasti_aw_valid; // @[Tile.scala 195:17]
+  assign dram_io_nasti_aw_bits_addr = arb_io_nasti_aw_bits_addr; // @[Tile.scala 195:17]
+  assign dram_io_nasti_w_valid = arb_io_nasti_w_valid; // @[Tile.scala 195:17]
+  assign dram_io_nasti_w_bits_data = arb_io_nasti_w_bits_data; // @[Tile.scala 195:17]
+  assign dram_io_nasti_w_bits_last = arb_io_nasti_w_bits_last; // @[Tile.scala 195:17]
+  assign dram_io_nasti_b_ready = arb_io_nasti_b_ready; // @[Tile.scala 195:17]
+  assign dram_io_nasti_ar_valid = arb_io_nasti_ar_valid; // @[Tile.scala 195:17]
+  assign dram_io_nasti_ar_bits_addr = arb_io_nasti_ar_bits_addr; // @[Tile.scala 195:17]
+  assign dram_io_nasti_r_ready = arb_io_nasti_r_ready; // @[Tile.scala 195:17]
+  assign dram_io_AXI_s_axi_awready = io_AXI_s_axi_awready; // @[Tile.scala 196:10]
+  assign dram_io_AXI_s_axi_wready = io_AXI_s_axi_wready; // @[Tile.scala 196:10]
+  assign dram_io_AXI_s_axi_bvalid = io_AXI_s_axi_bvalid; // @[Tile.scala 196:10]
+  assign dram_io_AXI_s_axi_arready = io_AXI_s_axi_arready; // @[Tile.scala 196:10]
+  assign dram_io_AXI_s_axi_rdata = io_AXI_s_axi_rdata; // @[Tile.scala 196:10]
+  assign dram_io_AXI_s_axi_rlast = io_AXI_s_axi_rlast; // @[Tile.scala 196:10]
+  assign dram_io_AXI_s_axi_rvalid = io_AXI_s_axi_rvalid; // @[Tile.scala 196:10]
   assign uartController_clock = clock;
   assign uartController_reset = reset;
-  assign uartController_io__cpu_req_valid = regmapper_io_uart_req_valid; // @[Tile.scala 168:21]
-  assign uartController_io__cpu_req_bits_addr = regmapper_io_uart_req_bits_addr; // @[Tile.scala 168:21]
-  assign uartController_io__cpu_req_bits_data = regmapper_io_uart_req_bits_data; // @[Tile.scala 168:21]
-  assign uartController_io__rxChannel_valid = uart_io_rxChannel_valid; // @[Tile.scala 170:31]
-  assign uartController_io__rxChannel_bits = uart_io_rxChannel_bits; // @[Tile.scala 170:31]
-  assign uartController_io__txChannel_ready = uart_io_txChannel_ready; // @[Tile.scala 169:31]
+  assign uartController_io__cpu_req_valid = regmapper_io_uart_req_valid; // @[Tile.scala 177:21]
+  assign uartController_io__cpu_req_bits_addr = regmapper_io_uart_req_bits_addr; // @[Tile.scala 177:21]
+  assign uartController_io__cpu_req_bits_data = regmapper_io_uart_req_bits_data; // @[Tile.scala 177:21]
+  assign uartController_io__rxChannel_valid = uart_io_rxChannel_valid; // @[Tile.scala 179:31]
+  assign uartController_io__rxChannel_bits = uart_io_rxChannel_bits; // @[Tile.scala 179:31]
+  assign uartController_io__txChannel_ready = uart_io_txChannel_ready; // @[Tile.scala 178:31]
   assign uart_clock = clock;
   assign uart_reset = reset;
-  assign uart_io_rxd = io_rxd; // @[Tile.scala 172:15]
-  assign uart_io_rxChannel_ready = uartController_io__rxChannel_ready; // @[Tile.scala 170:31]
-  assign uart_io_txChannel_valid = uartController_io__txChannel_valid; // @[Tile.scala 169:31]
-  assign uart_io_txChannel_bits = uartController_io__txChannel_bits; // @[Tile.scala 169:31]
+  assign uart_io_rxd = io_rxd; // @[Tile.scala 181:15]
+  assign uart_io_rxChannel_ready = uartController_io__rxChannel_ready; // @[Tile.scala 179:31]
+  assign uart_io_txChannel_valid = uartController_io__txChannel_valid; // @[Tile.scala 178:31]
+  assign uart_io_txChannel_bits = uartController_io__txChannel_bits; // @[Tile.scala 178:31]
   assign rtc_clock = clock;
   assign rtc_reset = reset;
-  assign rtc_io_req_valid = regmapper_io_rtc_req_valid; // @[Tile.scala 177:20]
-  assign rtc_io_req_bits_addr = regmapper_io_rtc_req_bits_addr; // @[Tile.scala 177:20]
-  assign rtc_io_req_bits_data = regmapper_io_rtc_req_bits_data; // @[Tile.scala 177:20]
-  assign rtc_io_req_bits_mask = regmapper_io_rtc_req_bits_mask; // @[Tile.scala 177:20]
+  assign rtc_io_req_valid = regmapper_io_rtc_req_valid; // @[Tile.scala 186:20]
+  assign rtc_io_req_bits_addr = regmapper_io_rtc_req_bits_addr; // @[Tile.scala 186:20]
+  assign rtc_io_req_bits_data = regmapper_io_rtc_req_bits_data; // @[Tile.scala 186:20]
+  assign rtc_io_req_bits_mask = regmapper_io_rtc_req_bits_mask; // @[Tile.scala 186:20]
+  assign vga_clock = clock;
+  assign vga_reset = reset;
+  assign vga_io_cpu_req_valid = regmapper_io_vga_req_valid; // @[Tile.scala 172:19]
+  assign vga_io_cpu_req_bits_addr = regmapper_io_vga_req_bits_addr; // @[Tile.scala 172:19]
+  assign vga_io_cpu_req_bits_data = regmapper_io_vga_req_bits_data; // @[Tile.scala 172:19]
 endmodule

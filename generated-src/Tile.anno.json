@@ -10,49 +10,49 @@
     "class":"firrtl.transforms.DedupedResult",
     "original":"~Tile|MemFifo",
     "duplicate":"~Tile|Tile/dfc_table:DFC_Table/cpu1_wbuf:MemFifo",
-    "index":0.08823529411764706
+    "index":0.08108108108108109
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~Tile|MemFifo_1",
     "duplicate":"~Tile|Tile/dfc_table:DFC_Table/cpu2_wbuf:MemFifo",
-    "index":0.11764705882352941
+    "index":0.10810810810810811
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~Tile|MemFifo_2",
     "duplicate":"~Tile|Tile/dfc_table:DFC_Table/cpu1_lbuf:MemFifo_2",
-    "index":0.14705882352941177
+    "index":0.13513513513513514
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~Tile|MemFifo_3",
     "duplicate":"~Tile|Tile/dfc_table:DFC_Table/cpu2_lbuf:MemFifo_2",
-    "index":0.17647058823529413
+    "index":0.16216216216216217
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~Tile|Cache",
     "duplicate":"~Tile|Tile/icache:Cache",
-    "index":0.5
+    "index":0.4594594594594595
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~Tile|Cache_1",
     "duplicate":"~Tile|Tile/dcache:Cache",
-    "index":0.5294117647058824
+    "index":0.4864864864864865
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~Tile|Buffer",
     "duplicate":"~Tile|Tile/uart:Uart/tx:BufferedTx/buf:Buffer",
-    "index":0.7941176470588235
+    "index":0.7297297297297297
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~Tile|Buffer_1",
     "duplicate":"~Tile|Tile/uart:Uart/rx:BufferedRx/buf:Buffer",
-    "index":0.8823529411764706
+    "index":0.8108108108108109
   },
   {
     "class":"firrtl.EmitCircuitAnnotation",
@@ -92,6 +92,6 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"/home/mikumiku/riscv-df/generated-src"
+    "targetDir":"H:/riscv-df/generated-src"
   }
 ]

@@ -8,7 +8,7 @@ import mini.{ALUArea, BrCondArea, BuildALU, BuildBrCond, BuildImmGen, CacheBlock
 
 class VgaConfig extends Config((site, here, up) => {
   // data len
-  case XLEN => 19
+  case XLEN => 18
 }
 )
 class vga_pic extends Module{
@@ -81,5 +81,5 @@ class vga_pic extends Module{
 }
 object emitt extends App{
   (new chisel3.stage.ChiselStage).emitVerilog(new vga_pic())
-  (new chisel3.stage.ChiselStage).emitVerilog(new vga_colorbar())
+  (new chisel3.stage.ChiselStage).emitVerilog(new vga())
 }

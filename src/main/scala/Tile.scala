@@ -6,7 +6,7 @@ import chisel3.{Output, _}
 import chisel3.util._
 import junctions._
 import freechips.rocketchip.config.Parameters
-import vga.vga_pic
+import vga.{vga, vga_pic}
 
 //三个nasti端口,其中两个分别连接icache和dcache
 class MemArbiterIO(implicit val p: Parameters) extends Bundle {
@@ -101,7 +101,9 @@ class TileIO(implicit val p: Parameters) extends Bundle {
 
   val txd = Output(UInt(1.W))   // 烧板
   val rxd = Input(UInt(1.W))    // 烧板
-
+  val hsync = Output(UInt(1.W))
+  val vsync = Output(UInt(1.W))
+  val vga_rgb = Output(UInt(12.W))
   // val nasti = new NastiIO         // 烧板、操作系统仿真
 }
 
@@ -145,7 +147,7 @@ class Tile(tileParams: Parameters) extends Module with TileBase {
   //rtc
   val rtc = Module(new RTC(10000000,p))
   //vga
-  val vga= Module(new vga_pic)
+  val vga= Module(new vga)
   // 操作系统仿真、dfc代码段仿真
   // val receiver = Module(new Receiver(50000000, 57600))
   // val sender = Module(new Sender(10000000, 57600))
@@ -166,6 +168,11 @@ class Tile(tileParams: Parameters) extends Module with TileBase {
   selector.io.dcache <> dmmu.io.cpu
   dmmu.io.cache <> dcache.io.cpu
   selector.io.devices <> regmapper.io.selector
+
+  regmapper.io.vga<>vga.io.cpu
+  io.hsync := vga.io.hsync
+  io.vsync := vga.io.vsync
+  io.vga_rgb := vga.io.vga_rgb
 
   regmapper.io.uart <> uartController.io.cpu
   uartController.io.txChannel <> uart.io.txChannel
